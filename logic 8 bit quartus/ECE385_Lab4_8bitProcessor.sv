@@ -7,16 +7,23 @@
 
 //Always use input/output logic types when possible, prevents issues with tools that have strict type enforcement
 
-module Processor (input logic   Clk,     // Internal
+//4-bit logic processor top level module
+//for use with ECE 385 Fall 2016
+//last modified by Zuofu Cheng
+
+
+//Always use input/output logic types when possible, prevents issues with tools that have strict type enforcement
+
+module Processor_8 (input logic   Clk,     // Internal
                                 Reset,   // Push button 0
                                 LoadA,   // Push button 1
                                 LoadB,   // Push button 2
                                 Execute, // Push button 3
-                  input  logic [3:0]  Din,     // input data
+                  input  logic [7:0]  Din,     // input data
                   input  logic [2:0]  F,       // Function select
                   input  logic [1:0]  R,       // Routing select
                   output logic [3:0]  LED,     // DEBUG
-                  output logic [3:0]  Aval,    // DEBUG
+                  output logic [7:0]  Aval,    // DEBUG
                                 Bval,    // DEBUG
                   output logic [6:0]  AhexL,
                                 AhexU,
@@ -30,13 +37,13 @@ module Processor (input logic   Clk,     // Internal
 	 logic Ld_A, Ld_B, newA, newB, opA, opB, bitA, bitB, Shift_En,
 	       F_A_B;
 	 logic [3:0] A, B, Din_S;
-
-
+	 
+	 
 	 //We can use the "assign" statement to do simple combinational logic
 	 assign Aval = A;
 	 assign Bval = B;
 	 assign LED = {Execute_SH,LoadA_SH,LoadB_SH,Reset_SH}; //Concatenate is a common operation in HDL
-
+	 
 	 //Instantiation of modules here
 	 register_unit    reg_unit (
                         .Clk(Clk),
@@ -80,15 +87,15 @@ module Processor (input logic   Clk,     // Internal
 	 HexDriver        HexBL (
                         .In0(B[3:0]),
                         .Out0(BhexL) );
-
+								
 	 //When you extend to 8-bits, you will need more HEX drivers to view upper nibble of registers, for now set to 0
 	 HexDriver        HexAU (
-                        .In0(4'h0),
-                        .Out0(AhexU) );
+                        .In0(8'h0),
+                        .Out0(AhexU) );	
 	 HexDriver        HexBU (
-                       .In0(4'h0),
+                       .In0(8'h0),
                         .Out0(BhexU) );
-
+								
 	  //Input synchronizers required for asynchronous inputs (in this case, from the switches)
 	  //These are array module instantiations
 	  //Note: S stands for SYNCHRONIZED, H stands for active HIGH
@@ -97,5 +104,6 @@ module Processor (input logic   Clk,     // Internal
 	  sync Din_sync[3:0] (Clk, Din, Din_S);
 	  sync F_sync[2:0] (Clk, F, F_S);
 	  sync R_sync[1:0] (Clk, R, R_S);
-
+	  
 endmodule
+
