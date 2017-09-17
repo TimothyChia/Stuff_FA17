@@ -1,10 +1,10 @@
-module testbench();
+module testbench_8();
 
 timeunit 10ns;	// Half clock cycle at 50 MHz
-			// This is the amount of time represented by #1 
+			// This is the amount of time represented by #1
 timeprecision 1ns;
 
-// These signals are internal because the processor will be 
+// These signals are internal because the processor will be
 // instantiated as a submodule in testbench.
 logic Clk = 0;
 logic Reset, LoadA, LoadB, Execute;
@@ -17,18 +17,18 @@ logic [7:0] Aval,
 logic [6:0] AhexL,
 		 AhexU,
 		 BhexL,
-		 BhexU; 
+		 BhexU;
 
 // To store expected results
 logic [7:0] ans_1a, ans_2b;
-				
+
 // A counter to count the instances where simulation results
 // do no match with expected results
 integer ErrorCnt = 0;
-		
+
 // Instantiating the DUT
 // Make sure the module and signal names match with those in your design
-Processor processor0(.*);	
+Processor_8 processor0(.*);	//renamed our module
 
 // Toggle the clock
 // #1 means wait for a delay of 1 timeunit
@@ -38,7 +38,7 @@ end
 
 initial begin: CLOCK_INITIALIZATION
     Clk = 0;
-end 
+end
 
 // Testing begins here
 // The initial block is not synthesizable
@@ -64,7 +64,7 @@ R = 2'b10;
    Din = 8'h00;	// Change Din again
 
 #2 Execute = 0;	// Toggle Execute
-   
+
 #22 Execute = 1;
     ans_1a = (8'h33 ^ 8'h55); // Expected result of 1st cycle
     // Aval is expected to be 8’h33 XOR 8’h55
@@ -82,7 +82,7 @@ R = 2'b10;
 #22 Execute = 0;
     // Aval is expected to stay the same
     // Bval is expected to be the answer of 1st cycle XNOR 8’h55
-    if (Aval != ans_1a)	
+    if (Aval != ans_1a)
 	 ErrorCnt++;
     ans_2b = ~(ans_1a ^ 8'h55); // Expected result of 2nd  cycle
     if (Bval != ans_2b)
