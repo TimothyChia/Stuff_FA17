@@ -1,6 +1,8 @@
+//looks like a translator of some kind? didn't modify.
+
 module HexDriver (input  logic [3:0]  In0,
                   output logic [6:0]  Out0);
-	
+
 	always_comb
 	begin
 		unique case (In0)

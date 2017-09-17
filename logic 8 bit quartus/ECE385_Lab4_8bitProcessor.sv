@@ -1,4 +1,4 @@
-//happens to have a different naming convention because of the way Tim initialized the Quartus project
+//happens to have a different file naming convention because of the way Tim initialized the Quartus project
 
 //4-bit logic processor top level module
 //for use with ECE 385 Fall 2016
