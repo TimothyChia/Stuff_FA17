@@ -1,4 +1,6 @@
-module compute (input  logic [2:0]  F, 
+//doesn't need to be changed.
+
+module compute (input  logic [2:0]  F,
                 input  logic A_In, B_In,
                 output logic A_Out, B_Out, F_A_B);
 
@@ -17,9 +19,9 @@ module compute (input  logic [2:0]  F,
         endcase
     end
 
-	
+
     assign A_Out = A_In;
     assign B_Out = B_In;
-	 
-	 
+
+
 endmodule
