@@ -1,4 +1,4 @@
-module register_unit (input  logic Clk, Reset, A_In, B_In, Ld_A, Ld_B,
+module register_unit_8 (input  logic Clk, Reset, A_In, B_In, Ld_A, Ld_B,
                             Shift_En,
                       input  logic [7:0]  D,
                       output logic A_out, B_out,

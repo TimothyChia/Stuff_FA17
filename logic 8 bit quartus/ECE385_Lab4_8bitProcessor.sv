@@ -36,16 +36,16 @@ module Processor_8 (input logic   Clk,     // Internal
 	 logic [1:0] R_S;
 	 logic Ld_A, Ld_B, newA, newB, opA, opB, bitA, bitB, Shift_En,
 	       F_A_B;
-	 logic [3:0] A, B, Din_S;
-	 
-	 
+	 logic [7:0] A, B, Din_S; //parallel outs and ins extended
+
+
 	 //We can use the "assign" statement to do simple combinational logic
-	 assign Aval = A;
+	 assign Aval = A; //the parallel outs from the registers
 	 assign Bval = B;
 	 assign LED = {Execute_SH,LoadA_SH,LoadB_SH,Reset_SH}; //Concatenate is a common operation in HDL
-	 
+
 	 //Instantiation of modules here
-	 register_unit    reg_unit (
+	 register_unit_8    reg_unit (
                         .Clk(Clk),
                         .Reset(Reset_SH),
                         .Ld_A, //note these are inferred assignments, because of the existence a logic variable of the same name
@@ -72,7 +72,7 @@ module Processor_8 (input logic   Clk,     // Internal
                         .A_Out(newA),
                         .B_Out(newB),
                         .F_A_B );
-	 control          control_unit (
+	 control_8          control_unit (
                         .Clk(Clk),
                         .Reset(Reset_SH),
                         .LoadA(LoadA_SH),
@@ -87,23 +87,24 @@ module Processor_8 (input logic   Clk,     // Internal
 	 HexDriver        HexBL (
                         .In0(B[3:0]),
                         .Out0(BhexL) );
-								
+
 	 //When you extend to 8-bits, you will need more HEX drivers to view upper nibble of registers, for now set to 0
+   //now modified
 	 HexDriver        HexAU (
-                        .In0(8'h0),
-                        .Out0(AhexU) );	
+                        .In0(A[7:4]),
+                        .Out0(AhexU) );
 	 HexDriver        HexBU (
-                       .In0(8'h0),
+                       .In0(B[7:4]),
                         .Out0(BhexU) );
-								
+
+
 	  //Input synchronizers required for asynchronous inputs (in this case, from the switches)
 	  //These are array module instantiations
 	  //Note: S stands for SYNCHRONIZED, H stands for active HIGH
 	  //Note: We can invert the levels inside the port assignments
 	  sync button_sync[3:0] (Clk, {~Reset, ~LoadA, ~LoadB, ~Execute}, {Reset_SH, LoadA_SH, LoadB_SH, Execute_SH});
-	  sync Din_sync[3:0] (Clk, Din, Din_S);
+	  sync Din_sync[7:0] (Clk, Din, Din_S); //looks like it needs modification.
 	  sync F_sync[2:0] (Clk, F, F_S);
 	  sync R_sync[1:0] (Clk, R, R_S);
-	  
-endmodule
 
+endmodule

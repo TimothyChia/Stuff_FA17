@@ -2,7 +2,7 @@
 
 //Two-always example for state machine
 
-module control (input  logic Clk, Reset, LoadA, LoadB, Execute,
+module control_8 (input  logic Clk, Reset, LoadA, LoadB, Execute,
                 output logic Shift_En, Ld_A, Ld_B );
 
     // Declare signals curr_state, next_state of type enum
