@@ -7,11 +7,11 @@ module CLA_4( input logic [3:0] A, B, //bits to be added
             //should maybe have a Cout output?
   );
 
-  logic [3:0] C;
+  logic [4:0] C; //now wider to fit the unused Cout from the CLU
   logic [3:0] P,G;
 
   //generates C, using P and G
-  CLAU CLAU_0(.P(P), .G(G), .Cin(Cin), .C(C) ); //explicitly connected even though names are the same
+  CLU CLU_0(.P(P), .G(G), .Cin(Cin), .C(C) ); //explicitly connected even though names are the same
 
   //these adders generate S, P, G, but require C to get S
   adder_CLA CLA_0 (.A (A[0]), .B (B[0]), .Cin (C[0]), .S (S[0]), .P (P[0]), .G(G[0]));
