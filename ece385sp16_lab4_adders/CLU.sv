@@ -1,4 +1,4 @@
-module CLU(input logic [3:0] P,G
+module CLU(input logic [3:0] P,G,
             input logic Cin,       //Carry in
             output logic [4:0] C
 );
