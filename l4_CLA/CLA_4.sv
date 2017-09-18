@@ -1,26 +1,33 @@
 //carry look ahead adder, 4 bit.
 
 module CLA_4( input logic [3:0] A, B, //bits to be added
-            input logic Cin,       //Carry in
-            output logic [3:0] S,  //the S bits
-            output logic PG, GG    //group propagate and generate
+              input logic Cin,       //Carry in
+              output logic [3:0] S,  //the S bits
+              output logic PG, GG    //group propagate and generate
+            //should maybe have a Cout output?
   );
 
   logic [3:0] C;
-  logic [2:0] P,G;
-  //
-  //  C3,C2,C1,C0,
-  //       P2,P1,P0,
-  //       G2,G1,G0
-  // ;
+  logic [3:0] P,G;
 
-  G = A&B;
-  P = A|B;
-  PG= P[0]&P[1]&P[2]&P[3];
-  GG= G[3]   |   G[2]&P[3]   |   G[1]&P[3]&P[2]   |   G[0]&P[3]&P[2]&P[1];
+  //generates C, using P and G
+  CLAU CLAU_0(.P(P), .G(G), .Cin(Cin), .C(C) ); //explicitly connected even though names are the same
 
-  C[0]= Cin;
-  C[1]= Cin & P[0]   |   G[0];
-  C[2]= Cin & P[0] & P[1]   |   G[0] & P[1]   |   G[1];
-  C[3]= Cin & P[0] & P[1] & P[2]  |   G[0] & P[1] & P[2]  |
-        G[1] & P[2] | G[2];
+  //these adders generate S, P, G, but require C to get S
+  adder_CLA CLA_0 (.A (A[0]), .B (B[0]), .Cin (C[0]), .S (S[0]), .P (P[0]), .G(G[0]));
+	adder_CLA CLA_1 (.A (A[1]), .B (B[1]), .Cin (C[1]), .S (S[1]), .P (P[1]), .G(G[1]));
+	adder_CLA CLA_2 (.A (A[2]), .B (B[2]), .Cin (C[2]), .S (S[2]), .P (P[2]), .G(G[2]));
+	adder_CLA CLA_3 (.A (A[3]), .B (B[3]), .Cin (C[3]), .S (S[3]), .P (P[3]), .G(G[3]));
+
+  always_comb begin
+  //equations typed to mirror the lab documentation as closely as possible.
+    PG= P[0]&P[1]&P[2]&P[3];
+    GG= G[3]   |   G[2]&P[3]   |   G[1]&P[3]&P[2]   |   G[0]&P[3]&P[2]&P[1];
+
+
+  end
+
+
+
+
+endmodule
