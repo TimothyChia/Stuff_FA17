@@ -1,5 +1,5 @@
 EDA Netlist Writer report for lab4_adders_toplevel
-Mon Sep 18 15:08:07 2017
+Tue Sep 19 09:54:56 2017
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Sep 18 15:08:07 2017 ;
+; EDA Netlist Writer Status ; Successful - Tue Sep 19 09:54:56 2017 ;
 ; Revision Name             ; lab4_adders_toplevel                  ;
 ; Top-level Entity Name     ; lab4_adders_toplevel                  ;
 ; Family                    ; Cyclone IV E                          ;
@@ -67,20 +67,20 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                                                   ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                                              ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_85c_slow.svo    ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_0c_slow.svo     ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_min_1200mv_0c_fast.svo   ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel.svo                      ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_85c_v_slow.sdo  ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_0c_v_slow.sdo   ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_min_1200mv_0c_v_fast.sdo ;
-; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_v.sdo                    ;
-+----------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                                               ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                                                          ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_85c_slow.svo    ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_0c_slow.svo     ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_min_1200mv_0c_fast.svo   ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel.svo                      ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_85c_v_slow.sdo  ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_7_1200mv_0c_v_slow.sdo   ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_min_1200mv_0c_v_fast.sdo ;
+; C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/lab4_adders_toplevel_v.sdo                    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -89,19 +89,19 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Mon Sep 18 15:08:06 2017
+    Info: Processing started: Tue Sep 19 09:54:55 2017
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off lab4_adders_toplevel -c lab4_adders_toplevel
-Info (204019): Generated file lab4_adders_toplevel_7_1200mv_85c_slow.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_7_1200mv_0c_slow.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_min_1200mv_0c_fast.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_7_1200mv_85c_v_slow.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_7_1200mv_0c_v_slow.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_min_1200mv_0c_v_fast.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file lab4_adders_toplevel_v.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_7_1200mv_85c_slow.svo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_7_1200mv_0c_slow.svo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_min_1200mv_0c_fast.svo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel.svo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_7_1200mv_85c_v_slow.sdo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_7_1200mv_0c_v_slow.sdo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_min_1200mv_0c_v_fast.sdo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file lab4_adders_toplevel_v.sdo in folder "C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/ece385sp16_lab4_adders/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 603 megabytes
-    Info: Processing ended: Mon Sep 18 15:08:07 2017
+    Info: Peak virtual memory: 583 megabytes
+    Info: Processing ended: Tue Sep 19 09:54:56 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -17,6 +17,8 @@ module carry_lookahead_adder
     logic [4:0] C;
     logic [3:0] P,G; //technically P0,P4,P8,P12
 
+	 logic Cin = 0;
+	 
     //generates C, using P and G
     CLU CLU_0(.P(P), .G(G), .Cin(Cin), .C(C) ); //explicitly connected even though names are the same
 
@@ -29,7 +31,8 @@ module carry_lookahead_adder
 
 always_comb begin
   Sum=S; //quartus should optimize this naming quirk out, but it might be needed to keep compatability with testbench
-  C[0]=0; //another slight difference from the CLA_4 this copies in format. look into class/library?
+  //wrong.
+  //C[0]=0; //another slight difference from the CLA_4 this copies in format. look into class/library?
   CO=C[4];
 end
 
