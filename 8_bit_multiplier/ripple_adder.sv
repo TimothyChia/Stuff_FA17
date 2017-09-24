@@ -1,11 +1,11 @@
 module ripple_adder (
- input [15:0] A, B,
+ input [8:0] A, B,
  input c_in,
- output logic [15:0] Sum, //renamed this to match the top level
+ output logic [8:0] Sum, //renamed this to match the top level
  output logic CO);    //and renamed this too
 
  //other variables below
- logic c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14;
+ logic c0, c1, c2, c3, c4, c5, c6, c7;
 
 	full_adder FA0  (.x (A[0]),  .y (B[0]),  .z (c_in), .s(Sum[0]),  .c (c0));
 	full_adder FA1  (.x (A[1]),  .y (B[1]),  .z (c0),  .s (Sum[1]),  .c (c1));
@@ -15,18 +15,7 @@ module ripple_adder (
 	full_adder FA5  (.x (A[5]),  .y (B[5]),  .z (c4),  .s (Sum[5]),  .c (c5));
 	full_adder FA6  (.x (A[6]),  .y (B[6]),  .z (c5),  .s (Sum[6]),  .c (c6));
 	full_adder FA7  (.x (A[7]),  .y (B[7]),  .z (c6),  .s (Sum[7]),  .c (c7));
-	full_adder FA8  (.x (A[8]),  .y (B[8]),  .z (c7),  .s (Sum[8]),  .c (c8));
-	full_adder FA9  (.x (A[9]),  .y (B[9]),  .z (c8),  .s (Sum[9]),  .c (c9));
-	full_adder FA10 (.x (A[10]), .y (B[10]), .z (c9),  .s (Sum[10]), .c (c10));
-	full_adder FA11 (.x (A[11]), .y (B[11]), .z (c10), .s (Sum[11]), .c (c11));
-	full_adder FA12 (.x (A[12]), .y (B[12]), .z (c11), .s (Sum[12]), .c (c12));
-	full_adder FA13 (.x (A[13]), .y (B[13]), .z (c12), .s (Sum[13]), .c (c13));
-
-  //changed this from 13 to 14 because of a compile error, that was a typo probably?
-	full_adder FA14 (.x (A[14]), .y (B[14]), .z (c13), .s (Sum[14]), .c (c14));
-	full_adder FA15 (.x (A[15]), .y (B[15]), .z (c14), .s (Sum[15]), .c (CO));
-
-
+	full_adder FA8  (.x (A[8]),  .y (B[8]),  .z (c7),  .s (Sum[8]),  .c (CO));
 
 
 
