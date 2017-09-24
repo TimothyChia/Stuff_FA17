@@ -2,12 +2,12 @@ module 8_bi_multiplier.sv
 (
   input   logic           Clk,        // 50MHz clock is only used to get timing estimate data
   input   logic           Reset,      // From push-button 0.  Remember the button is active low (0 when pressed)
-  input   logic           LoadB,      // From push-button 1
   input   logic           Run,        // From push-button 3.
-  input   logic[15:0]     SW,         // From slider switches
+  input   logic           ClearA_LoadB,      // From push-button 1
+  input   logic[7:0]      S,         // From slider switches
 
   // all outputs are registered
-  output  logic           CO,         // Carry-out.  Goes to the green LED to the left of the hex displays.
+  output  logic           X,         // Carry-out.  Goes to the green LED to the left of the hex displays.
   output  logic[15:0]     Sum,        // Goes to the red LEDs.  You need to press "Run" before the sum shows up here.
   output  logic[6:0]      Ahex0,      // Hex drivers display both inputs to the adder.
   output  logic[6:0]      Ahex1,
@@ -26,16 +26,13 @@ module 8_bi_multiplier.sv
   /* Declare Internal Wires
    * Wheather an internal logic signal becomes a register or wire depends
    * on if it is written inside an always_ff or always_comb block respectivly */
-  logic[15:0]     Sum_comb;
-  logic           CO_comb;
-  logic[6:0]      Ahex0_comb;
-  logic[6:0]      Ahex1_comb;
-  logic[6:0]      Ahex2_comb;
-  logic[6:0]      Ahex3_comb;
-  logic[6:0]      Bhex0_comb;
-  logic[6:0]      Bhex1_comb;
-  logic[6:0]      Bhex2_comb;
-  logic[6:0]      Bhex3_comb;
+  logic[6:0]      AhexU;
+  logic[6:0]      AhexL;
+  logic[6:0]      BhexU;
+  logic[6:0]      BhexL;
+  logic[7:0]     Aval;
+  logic[7:0]     Bval;
+  logic           X;
 
   /* Behavior of registers A, B, Sum, and CO */
   always_ff @(posedge Clk) begin
@@ -98,53 +95,21 @@ module 8_bi_multiplier.sv
       .CO(CO_comb)
   );
 
-  HexDriver Ahex0_inst
-  (
-      .In0(A[3:0]),   // This connects the 4 least significant bits of
-                      // register A to the input of a hex driver named Ahex0_inst
-      .Out0(Ahex0_comb)
-  );
+  HexDriver        HexAL (
+                       .In0(A[3:0]),
+                       .Out0(AhexL) );
+  HexDriver        HexBL (
+                       .In0(B[3:0]),
+                       .Out0(BhexL) );
 
-  HexDriver Ahex1_inst
-  (
-      .In0(A[7:4]),
-      .Out0(Ahex1_comb)
-  );
+  //When you extend to 8-bits, you will need more HEX drivers to view upper nibble of registers, for now set to 0
+  //now modified
+  HexDriver        HexAU (
+                       .In0(A[7:4]),
+                       .Out0(AhexU) );
+  HexDriver        HexBU (
+                      .In0(B[7:4]),
+                       .Out0(BhexU) );
 
-  HexDriver Ahex2_inst
-  (
-      .In0(A[11:8]),
-      .Out0(Ahex2_comb)
-  );
-
-  HexDriver Ahex3_inst
-  (
-      .In0(A[15:12]),
-      .Out0(Ahex3_comb)
-  );
-
-  HexDriver Bhex0_inst
-  (
-      .In0(B[3:0]),
-      .Out0(Bhex0_comb)
-  );
-
-  HexDriver Bhex1_inst
-  (
-      .In0(B[7:4]),
-      .Out0(Bhex1_comb)
-  );
-
-  HexDriver Bhex2_inst
-  (
-      .In0(B[11:8]),
-      .Out0(Bhex2_comb)
-  );
-
-  HexDriver Bhex3_inst
-  (
-      .In0(B[15:12]),
-      .Out0(Bhex3_comb)
-  );
 
 endmodule
