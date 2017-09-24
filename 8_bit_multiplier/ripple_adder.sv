@@ -1,7 +1,7 @@
 module ripple_adder (
  input [8:0] A, B,
  input c_in,
- output logic [15:0] Sum, //renamed this to match the top level
+ output logic [8:0] Sum, //renamed this to match the top level
  output logic CO);    //and renamed this too
 
  //other variables below
