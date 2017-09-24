@@ -33,11 +33,10 @@ module 8_bit_multiplier.sv
   logic          AtoB;
   logic Shift_en;
 
-  /* Behavior of registers A, B, Sum, and CO */
-  always_ff @(posedge Clk) begin
 
+  logic[8:0] S_ext;
+  logic[8:0] S_ext_flipped;
 
-  end
 
   /* Decoders for HEX drivers and output registers
    * Note that the hex drivers are calculated one cycle after Sum so
@@ -67,7 +66,7 @@ module 8_bit_multiplier.sv
                         .Ld_B );
 
         //all three share shift enable?
-  dreg   reg_X ( .Clk, Load, Reset_XA, D, Q );
+  dreg   reg_X ( .Clk, Load, Reset_XA, D(data_X), Q );
   //
   reg_8  reg_A (.*, .Reset(Reset_XA), .Shift_In(data_X), .Load(Ld_A),
                .Shift_Out(AtoB), .Data_Out(A));
@@ -79,11 +78,24 @@ module 8_bit_multiplier.sv
 
  ripple_adder ripple_adder_inst
   (
-      .A,             // This is shorthand for .A(A) when both wires/registers have the same name
-      .B,
-      .Sum(Sum_comb), // Connects the Sum_comb wire in this file to the Sum wire in ripple_adder.sv
+      .A(adder_In),             // This is shorthand for .A(A) when both wires/registers have the same name
+      .B({data_X,A}),
+      .Sum(XA_sum), // Connects the Sum_comb wire in this file to the Sum wire in ripple_adder.sv
       .CO(CO_comb)
   );
+
+
+
+  ripple_adder S_inverter
+   (
+       .A(S_ext_flipped),             // This is shorthand for .A(A) when both wires/registers have the same name
+       .B(1),
+       .Sum(S_ext_neg), // Connects the Sum_comb wire in this file to the Sum wire in ripple_adder.sv
+       .CO(ssomething)
+   );
+
+
+
 
   HexDriver        HexAL (
                        .In0(A[3:0]),
@@ -100,10 +112,27 @@ module 8_bit_multiplier.sv
   HexDriver        HexBU (
                       .In0(B[7:4]),
                        .Out0(BhexU) );
-   //
-  //  always_comb begin
-  //
-  //  end
+
+   always_comb begin
+       //sign extend S, call it S_ext
+       if(S[7])
+         S_ext={1'b1,S};
+       else
+         S_ext={1'b0,S};
+
+        S_ext_flipped=S^1;
+
+       //feed the XA adder the the needed input
+       if(Sub)
+         adder_In = S_ext_neg;
+       else if(!Add)
+          adder_In = 9'b000000000;
+       else //should trigger if Add is true
+         adder_In = S_ext;
+
+
+
+   end
 
 
 
