@@ -1,0 +1,276 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim
+vbit_multiplier_8
+Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z2 !s110 1506318990
+!i10b 1
+!s100 j6X=82Lz;:IIQ?h1<I6SL0
+I^5MI1o[bXkSonDoS>Iko33
+Z3 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 bit_multiplier_8_sv_unit
+S1
+R0
+w1506318873
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv
+L0 1
+Z4 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1506318990.968000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv|
+!i113 1
+Z5 o-sv -work work
+Z6 !s92 -sv -work work {+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8}
+vcontrol
+R1
+R2
+!i10b 1
+!s100 1CLQZfcj3;mRBb90:Fd6[1
+I]N01R738;7miQF;X2Ra<z3
+R3
+!s105 Control_sv_unit
+S1
+R0
+w1506314715
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv
+L0 5
+R4
+r1
+!s85 0
+31
+!s108 1506318990.867000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv|
+!i113 1
+R5
+R6
+vDreg
+R1
+R2
+!i10b 1
+!s100 KNfzX?HIgMOW[3Q:27UmE3
+IdmVTKlDY=e79c5bl2K8f02
+R3
+!s105 Dreg_sv_unit
+S1
+R0
+w1506296415
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318990.812000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv|
+!i113 1
+R5
+R6
+n@dreg
+vfull_adder
+R1
+R2
+!i10b 1
+!s100 U4T@D5b1heIThP>mnUo]i3
+Ib^jIYl:nS08k`z7z<cWTM1
+R3
+!s105 adder2_sv_unit
+S1
+R0
+Z7 w1505826902
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318990.920000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv|
+!i113 1
+R5
+R6
+vHexDriver
+R1
+R2
+!i10b 1
+!s100 A89PE:z4001FXEa5_3CF:0
+IjaDSm1ZnbmASESk^ZW`M=2
+R3
+!s105 HexDriver_sv_unit
+S1
+R0
+R7
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318990.761000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv|
+!i113 1
+R5
+R6
+n@hex@driver
+vreg_8
+R1
+R2
+!i10b 1
+!s100 WWdzR03@C^9b3oUm=RkLo0
+Ih0OEWFUY>V>80J05U<LWB1
+R3
+!s105 Reg_8_sv_unit
+S1
+R0
+w1506285807
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318990.706000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv|
+!i113 1
+R5
+R6
+vripple_adder
+R1
+R2
+!i10b 1
+!s100 jJ;58C5`=_o0jc:6;Ug_Q2
+IT@`BinLcUAFYBQ^UJ=71>2
+R3
+!s105 ripple_adder_sv_unit
+S1
+R0
+w1506286253
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318990.659000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv|
+!i113 1
+R5
+R6
+vsync
+R1
+R2
+!i10b 1
+!s100 MBRRDQzUeRGc3_JnKELC82
+IG59U:4o6ZhHcP5mh2NV__1
+R3
+Z8 !s105 Synchronizers8_sv_unit
+S1
+R0
+Z9 w1505826904
+Z10 8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv
+Z11 FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv
+L0 6
+R4
+r1
+!s85 0
+31
+Z12 !s108 1506318990.602000
+Z13 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv|
+Z14 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv|
+!i113 1
+R5
+R6
+vsync_r0
+R1
+R2
+!i10b 1
+!s100 ^edZB53fTQWmU<]D8>SLJ1
+IgSHRUBP15O2:7463i1?QW1
+R3
+R8
+S1
+R0
+R9
+R10
+R11
+L0 20
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R5
+R6
+vsync_r1
+R1
+R2
+!i10b 1
+!s100 1UJULQIBYV]c:7PZl0oR<0
+IVTTFzV`LQXPYYa1>e]El=3
+R3
+R8
+S1
+R0
+R9
+R10
+R11
+L0 41
+R4
+r1
+!s85 0
+31
+R12
+R13
+R14
+!i113 1
+R5
+R6
+vtestbench
+R1
+!s110 1506318991
+!i10b 1
+!s100 77:mR:COklNIehYdhLHEn2
+IDiY;G^088dk19i`VaGg7n3
+R3
+!s105 testbench_sv_unit
+S1
+R0
+w1506318865
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1506318991.018000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv|
+!i113 1
+R5
+R6

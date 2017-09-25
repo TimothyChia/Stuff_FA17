@@ -1,5 +1,5 @@
-Analysis & Elaboration report for 8_bit_multiplier
-Sun Sep 24 18:16:01 2017
+Analysis & Synthesis report for 8_bit_multiplier
+Mon Sep 25 01:00:16 2017
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -7,10 +7,22 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |bit_multiplier_8|control:control_unit|curr_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "ripple_adder:S_inverter"
+ 13. Port Connectivity Checks: "ripple_adder:ripple_adder_inst"
+ 14. Port Connectivity Checks: "reg_8:reg_B"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -35,38 +47,27 @@ agreement for further details.
 
 
 +---------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                  ;
+; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Elaboration Status      ; Failed - Sun Sep 24 18:16:01 2017          ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 25 01:00:16 2017      ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                      ; 8_bit_multiplier                           ;
 ; Top-level Entity Name              ; bit_multiplier_8                           ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; N/A until Partition Merge                  ;
-;     Total combinational functions  ; N/A until Partition Merge                  ;
-;     Dedicated logic registers      ; N/A until Partition Merge                  ;
-; Total registers                    ; N/A until Partition Merge                  ;
-; Total pins                         ; N/A until Partition Merge                  ;
-; Total virtual pins                 ; N/A until Partition Merge                  ;
-; Total memory bits                  ; N/A until Partition Merge                  ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                  ;
-; Total PLLs                         ; N/A until Partition Merge                  ;
+; Total logic elements               ; 123                                        ;
+;     Total combinational functions  ; 115                                        ;
+;     Dedicated logic registers      ; 76                                         ;
+; Total registers                    ; 76                                         ;
+; Total pins                         ; 92                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
 +------------------------------------+--------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 4      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
-
-
 +----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                      ;
+; Analysis & Synthesis Settings                                                                                        ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
@@ -152,9 +153,256 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; Synchronizers8.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv   ;         ;
+; ripple_adder.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv     ;         ;
+; Reg_8.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv            ;         ;
+; HexDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv        ;         ;
+; Dreg.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv             ;         ;
+; Control.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv          ;         ;
+; bit_multiplier_8.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv ;         ;
+; adder2.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv           ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 123       ;
+;                                             ;           ;
+; Total combinational functions               ; 115       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 75        ;
+;     -- 3 input functions                    ; 12        ;
+;     -- <=2 input functions                  ; 28        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 115       ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 76        ;
+;     -- Dedicated logic registers            ; 76        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 92        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; Clk~input ;
+; Maximum fan-out                             ; 76        ;
+; Total fan-out                               ; 732       ;
+; Average fan-out                             ; 1.95      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                             ; Library Name ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------+
+; |bit_multiplier_8                   ; 115 (9)           ; 76 (28)      ; 0           ; 0            ; 0       ; 0         ; 92   ; 0            ; |bit_multiplier_8                                               ; work         ;
+;    |Dreg:reg_X|                     ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|Dreg:reg_X                                    ; work         ;
+;    |HexDriver:HexAL|                ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|HexDriver:HexAL                               ; work         ;
+;    |HexDriver:HexAU|                ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|HexDriver:HexAU                               ; work         ;
+;    |HexDriver:HexBL|                ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|HexDriver:HexBL                               ; work         ;
+;    |HexDriver:HexBU|                ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|HexDriver:HexBU                               ; work         ;
+;    |control:control_unit|           ; 27 (27)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|control:control_unit                          ; work         ;
+;    |reg_8:reg_A|                    ; 14 (14)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|reg_8:reg_A                                   ; work         ;
+;    |reg_8:reg_B|                    ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|reg_8:reg_B                                   ; work         ;
+;    |ripple_adder:S_inverter|        ; 10 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter                       ; work         ;
+;       |full_adder:FA1|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA1        ; work         ;
+;       |full_adder:FA2|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA2        ; work         ;
+;       |full_adder:FA3|              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA3        ; work         ;
+;       |full_adder:FA4|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA4        ; work         ;
+;       |full_adder:FA5|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA5        ; work         ;
+;       |full_adder:FA6|              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA6        ; work         ;
+;       |full_adder:FA7|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA7        ; work         ;
+;       |full_adder:FA8|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:S_inverter|full_adder:FA8        ; work         ;
+;    |ripple_adder:ripple_adder_inst| ; 12 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst                ; work         ;
+;       |full_adder:FA0|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA0 ; work         ;
+;       |full_adder:FA1|              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA1 ; work         ;
+;       |full_adder:FA2|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA2 ; work         ;
+;       |full_adder:FA3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA3 ; work         ;
+;       |full_adder:FA4|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA4 ; work         ;
+;       |full_adder:FA5|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA5 ; work         ;
+;       |full_adder:FA6|              ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA6 ; work         ;
+;       |full_adder:FA7|              ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|ripple_adder:ripple_adder_inst|full_adder:FA7 ; work         ;
+;    |sync:S_sync[0]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[0]                                ; work         ;
+;    |sync:S_sync[1]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[1]                                ; work         ;
+;    |sync:S_sync[2]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[2]                                ; work         ;
+;    |sync:S_sync[3]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[3]                                ; work         ;
+;    |sync:S_sync[4]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[4]                                ; work         ;
+;    |sync:S_sync[5]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[5]                                ; work         ;
+;    |sync:S_sync[6]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[6]                                ; work         ;
+;    |sync:S_sync[7]|                 ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:S_sync[7]                                ; work         ;
+;    |sync:button_sync[0]|            ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:button_sync[0]                           ; work         ;
+;    |sync:button_sync[1]|            ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:button_sync[1]                           ; work         ;
+;    |sync:button_sync[2]|            ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |bit_multiplier_8|sync:button_sync[2]                           ; work         ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |bit_multiplier_8|control:control_unit|curr_state                                                                                                                                                                                                                                                        ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; Name         ; curr_state.T ; curr_state.S ; curr_state.R ; curr_state.Q ; curr_state.P ; curr_state.O ; curr_state.N ; curr_state.M ; curr_state.L ; curr_state.K ; curr_state.J ; curr_state.I ; curr_state.H ; curr_state.G ; curr_state.F ; curr_state.E ; curr_state.D ; curr_state.C ; curr_state.B ; curr_state.A ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; curr_state.A ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
+; curr_state.B ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
+; curr_state.C ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
+; curr_state.D ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
+; curr_state.E ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.F ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.G ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.H ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.I ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.J ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.K ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.L ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.M ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.N ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.O ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.P ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.Q ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.R ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.S ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; curr_state.T ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; control:control_unit|curr_state~2     ; Lost fanout        ;
+; control:control_unit|curr_state~3     ; Lost fanout        ;
+; control:control_unit|curr_state~4     ; Lost fanout        ;
+; control:control_unit|curr_state~5     ; Lost fanout        ;
+; control:control_unit|curr_state~6     ; Lost fanout        ;
+; Total Number of Removed Registers = 5 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 76    ;
+; Number of registers using Synchronous Clear  ; 10    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bit_multiplier_8|reg_8:reg_A|Data_Out[0]         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |bit_multiplier_8|reg_8:reg_B|Data_Out[7]         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |bit_multiplier_8|adder_In[7]                     ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |bit_multiplier_8|control:control_unit|curr_state ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ripple_adder:S_inverter"                                                               ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; B[8..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; c_in    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; CO      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ripple_adder:ripple_adder_inst"                                                                                                                                                        ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                            ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; c_in     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; c_in[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; CO       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_8:reg_B"                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Shift_Out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 92                          ;
+; cycloneiii_ff         ; 76                          ;
+;     CLR               ; 1                           ;
+;     ENA               ; 8                           ;
+;     ENA SCLR          ; 8                           ;
+;     SCLR              ; 2                           ;
+;     plain             ; 57                          ;
+; cycloneiii_lcell_comb ; 125                         ;
+;     normal            ; 125                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 12                          ;
+;         4 data inputs ; 75                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 2.61                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Mon Sep 25 01:00:08 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bit_multiplier_8 -c 8_bit_multiplier
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 3 design units, including 3 entities, in source file synchronizers8.sv
     Info (12023): Found entity 1: sync
@@ -162,14 +410,51 @@ Info (12021): Found 3 design units, including 3 entities, in source file synchro
     Info (12023): Found entity 3: sync_r1
 Info (12021): Found 1 design units, including 1 entities, in source file ripple_adder.sv
     Info (12023): Found entity 1: ripple_adder
+Info (12021): Found 1 design units, including 1 entities, in source file reg_8.sv
+    Info (12023): Found entity 1: reg_8
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
     Info (12023): Found entity 1: HexDriver
+Info (12021): Found 1 design units, including 1 entities, in source file dreg.sv
+    Info (12023): Found entity 1: Dreg
+Info (12021): Found 1 design units, including 1 entities, in source file control.sv
+    Info (12023): Found entity 1: control
+Info (12021): Found 1 design units, including 1 entities, in source file bit_multiplier_8.sv
+    Info (12023): Found entity 1: bit_multiplier_8
 Info (12021): Found 1 design units, including 1 entities, in source file adder4.sv
     Info (12023): Found entity 1: full_adder_4
 Info (12021): Found 1 design units, including 1 entities, in source file adder2.sv
     Info (12023): Found entity 1: full_adder
-Error (10267): Verilog HDL Module Instantiation error at bit_multiplier_8.sv(78): cannot connect instance ports both by order and by name File: C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/8_bit_multiplier/bit_multiplier_8.sv Line: 78
-Error (10170): Verilog HDL syntax error at bit_multiplier_8.sv(153) near text "Ld_X";  expecting ";" File: C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/8_bit_multiplier/bit_multiplier_8.sv Line: 153
-Error (10112): Ignored design unit "bit_multiplier_8" at bit_multiplier_8.sv(1) due to previous errors File: C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/8_bit_multiplier/bit_multiplier_8.sv Line: 1
+Info (12127): Elaborating entity "bit_multiplier_8" for the top level hierarchy
+Warning (10034): Output port "Sum[15..8]" at bit_multiplier_8.sv(11) has no driver
+Info (12128): Elaborating entity "control" for hierarchy "control:control_unit"
+Info (12128): Elaborating entity "Dreg" for hierarchy "Dreg:reg_X"
+Info (12128): Elaborating entity "reg_8" for hierarchy "reg_8:reg_A"
+Info (12128): Elaborating entity "ripple_adder" for hierarchy "ripple_adder:ripple_adder_inst"
+Info (12128): Elaborating entity "full_adder" for hierarchy "ripple_adder:ripple_adder_inst|full_adder:FA0"
+Info (12128): Elaborating entity "HexDriver" for hierarchy "HexDriver:HexAL"
+Info (12128): Elaborating entity "sync" for hierarchy "sync:button_sync[0]"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Sum[8]" is stuck at GND
+    Warning (13410): Pin "Sum[9]" is stuck at GND
+    Warning (13410): Pin "Sum[10]" is stuck at GND
+    Warning (13410): Pin "Sum[11]" is stuck at GND
+    Warning (13410): Pin "Sum[12]" is stuck at GND
+    Warning (13410): Pin "Sum[13]" is stuck at GND
+    Warning (13410): Pin "Sum[14]" is stuck at GND
+    Warning (13410): Pin "Sum[15]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 215 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 80 output pins
+    Info (21061): Implemented 123 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 695 megabytes
+    Info: Processing ended: Mon Sep 25 01:00:16 2017
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:15
 
 
