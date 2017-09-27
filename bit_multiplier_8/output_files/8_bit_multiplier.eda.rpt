@@ -1,5 +1,5 @@
 EDA Netlist Writer report for 8_bit_multiplier
-Mon Sep 25 01:00:44 2017
+Mon Sep 25 22:22:13 2017
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Sep 25 01:00:44 2017 ;
+; EDA Netlist Writer Status ; Successful - Mon Sep 25 22:22:13 2017 ;
 ; Revision Name             ; 8_bit_multiplier                      ;
 ; Top-level Entity Name     ; bit_multiplier_8                      ;
 ; Family                    ; Cyclone IV E                          ;
@@ -89,7 +89,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Mon Sep 25 01:00:43 2017
+    Info: Processing started: Mon Sep 25 22:22:12 2017
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off bit_multiplier_8 -c 8_bit_multiplier
 Info (204019): Generated file 8_bit_multiplier_7_1200mv_85c_slow.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file 8_bit_multiplier_7_1200mv_0c_slow.svo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim/" for EDA simulation tool
@@ -100,8 +100,8 @@ Info (204019): Generated file 8_bit_multiplier_7_1200mv_0c_v_slow.sdo in folder 
 Info (204019): Generated file 8_bit_multiplier_min_1200mv_0c_v_fast.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file 8_bit_multiplier_v.sdo in folder "C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 608 megabytes
-    Info: Processing ended: Mon Sep 25 01:00:44 2017
+    Info: Peak virtual memory: 607 megabytes
+    Info: Processing ended: Mon Sep 25 22:22:13 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

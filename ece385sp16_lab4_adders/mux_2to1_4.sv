@@ -6,8 +6,9 @@ module mux_2to1_4 (
 
 
 /* if(sel)	assign out = sum1;
-
+ 
  else	assign out = sum0; */
 
  assign out = (sel)? sum1:sum0;
  endmodule
+ 

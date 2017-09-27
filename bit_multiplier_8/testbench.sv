@@ -63,11 +63,11 @@ Run = 0;
 
 
 #2 Reset = 0;
-#2 S = 8'hFF;
+#2 S = 8'hF0;
 #2 ClearA_LoadB = 1;	// Toggle LoadA
 #5 ClearA_LoadB = 0;
 
-#2 S = 8'hFF;
+#2 S = 8'hF0;
 #2 Run = 1;
 #2 Run = 0;
 #22
