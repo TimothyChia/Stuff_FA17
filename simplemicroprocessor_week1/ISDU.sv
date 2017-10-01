@@ -146,9 +146,9 @@ module ISDU (   input logic         Clk,
                 Next_state = S_18;
             S_00 : //BR
               if(BEN)
-                Next_state = S_22
+                Next_state = S_22;
               else
-                Next_state = S_18
+                Next_state = S_18;
             S_22 :
                 Next_state = S_18;
             default : ;
@@ -216,9 +216,33 @@ module ISDU (   input logic         Clk,
                     GateALU = 1'b1;
                     LD_REG = 1'b1;
                     // incomplete...
+                    LD_CC = 1'b1;
+
+
+
+
                 end
 
             // You need to finish the rest of states.....
+            S_05 :
+              begin
+                  SR2MUX = IR_5;
+                  ALUK = 2'b01;
+                  GateALU = 1'b1;
+                  LD_REG = 1'b1;
+                  // incomplete...
+                  LD_CC = 1'b1;
+              end
+
+              S_09 :
+                begin
+                    SR2MUX = IR_5;
+                    ALUK = 2'b01;
+                    GateALU = 1'b1;
+                    LD_REG = 1'b1;
+                    // incomplete...
+                    LD_CC = 1'b1;
+                end
 
             default : ;
         endcase
