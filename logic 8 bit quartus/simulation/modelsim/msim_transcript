@@ -12,10 +12,10 @@
 # ** Warning: Copied C:/altera/15.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv 
+# Start time: 23:47:25 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv 
 # -- Compiling module sync
 # -- Compiling module sync_r0
 # -- Compiling module sync_r1
@@ -24,93 +24,93 @@
 # 	sync
 # 	sync_r0
 # 	sync_r1
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:25 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv 
+# Start time: 23:47:25 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv 
 # -- Compiling module router
 # 
 # Top level modules:
 # 	router
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:25 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv 
+# Start time: 23:47:25 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv 
 # -- Compiling module reg_8
 # 
 # Top level modules:
 # 	reg_8
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv 
 # -- Compiling module HexDriver
 # 
 # Top level modules:
 # 	HexDriver
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv 
 # -- Compiling module control_8
 # 
 # Top level modules:
 # 	control_8
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv 
 # -- Compiling module compute
 # 
 # Top level modules:
 # 	compute
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:11 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv 
 # -- Compiling module register_unit_8
 # 
 # Top level modules:
 # 	register_unit_8
-# End time: 09:46:11 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:12 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv 
 # -- Compiling module Processor_8
 # 
 # Top level modules:
 # 	Processor_8
-# End time: 09:46:12 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+C:/ECE\ 385\ -\ tchia2\ -shung5/Stuff_FA17-master/Stuff_FA17-master/logic\ 8\ bit\ quartus {C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv}
+# vlog -sv -work work +incdir+C:/Users/timrc/Dropbox/Fall\ 2017/ECE\ 385/Stuff_FA17/logic\ 8\ bit\ quartus {C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv}
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 09:46:12 on Sep 19,2017
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus" C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv 
+# Start time: 23:47:26 on Sep 26,2017
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus" C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv 
 # -- Compiling module testbench_8
 # 
 # Top level modules:
 # 	testbench_8
-# End time: 09:46:12 on Sep 19,2017, Elapsed time: 0:00:00
+# End time: 23:47:26 on Sep 26,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  testbench_8
 # vsim -gui "+altera" -l msim_transcript -do "ECE385_Lab4_8bitProcessor_run_msim_rtl_verilog.do" 
-# Start time: 09:46:12 on Sep 19,2017
+# Start time: 23:47:26 on Sep 26,2017
 # Loading sv_std.std
 # Loading work.testbench_8
 # Loading work.Processor_8
@@ -128,16 +128,16 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 1000 ns
-# ** Warning: (vsim-8315) C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv(28): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv(28): No condition is true in the unique/priority if/case statement.
 # 
-# ** Warning: (vsim-8315) C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv(19): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv(19): No condition is true in the unique/priority if/case statement.
 # 
-# ** Warning: (vsim-8315) C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv(9): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv(9): No condition is true in the unique/priority if/case statement.
 # 
-# ** Warning: (vsim-8315) C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv(10): No condition is true in the unique/priority if/case statement.
 # 
-# ** Warning: (vsim-8315) C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv(28): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv(28): No condition is true in the unique/priority if/case statement.
 # 
 # Success!
-# End time: 09:48:27 on Sep 19,2017, Elapsed time: 0:02:15
+# End time: 23:59:07 on Sep 26,2017, Elapsed time: 0:11:41
 # Errors: 0, Warnings: 5

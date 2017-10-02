@@ -7,52 +7,52 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/simulation/modelsim
+Z0 dC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/simulation/modelsim
 vcompute
 Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-Z2 !s110 1505832371
+Z2 !s110 1506487646
 !i10b 1
 !s100 bhacV6ejlbE=0QJZi8cj`3
-IPc=1[`KHOOY7[h^[``?Ri1
+IYgL^9<4_4C<[[kWz[jgCU0
 Z3 V`JN@9S9cnhjKRR_L]QIcM3
 !s105 compute8_sv_unit
 S1
 R0
-Z4 w1505826902
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv
+Z4 w1505826904
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv
 L0 3
 Z5 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1505832371.890000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/compute8.sv|
+!s108 1506487646.164000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/compute8.sv|
 !i113 1
 Z6 o-sv -work work
-Z7 !s92 -sv -work work {+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus}
+Z7 !s92 -sv -work work {+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus}
 vcontrol_8
 R1
 R2
 !i10b 1
 !s100 G>mBo:3>dV3zcE]_QBN;K2
-IPZB6VYd0=Tz:LIRBG3loc1
+IonAK<nQLa_]TJ3IMPf;WD2
 R3
 !s105 Control8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv
 L0 5
 R5
 r1
 !s85 0
 31
-!s108 1505832371.650000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Control8.sv|
+!s108 1506487646.111000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Control8.sv|
 !i113 1
 R6
 R7
@@ -61,47 +61,47 @@ R1
 R2
 !i10b 1
 !s100 JEFh6G0Jd5=UPdJ`SbGGn0
-ImiAJfc4@KmbT=G]YSX^iX3
+I[DOk`4SFI=C@@XSi;8K1N2
 R3
 !s105 HexDriver8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv
 L0 3
 R5
 r1
 !s85 0
 31
-!s108 1505832371.499000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/HexDriver8.sv|
+!s108 1506487646.049000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/HexDriver8.sv|
 !i113 1
 R6
 R7
 n@hex@driver
 vProcessor_8
 R1
-Z8 !s110 1505832372
+R2
 !i10b 1
 !s100 2iO5fdP]_5RgeFLNdAg1e0
-Icodfim?VmjfZQ?:MYaV_50
+I8O6mH_R9SXme]f?3jZ7U11
 R3
 !s105 Processor_8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv
 L0 17
 R5
 r1
 !s85 0
 31
-!s108 1505832372.024000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Processor_8.sv|
+!s108 1506487646.272000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Processor_8.sv|
 !i113 1
 R6
 R7
@@ -111,22 +111,22 @@ R1
 R2
 !i10b 1
 !s100 WWdzR03@C^9b3oUm=RkLo0
-IOhN_^=YfURhE4Nl^20e3U3
+IQgi>J8=RQfLZCc5Y[2;li3
 R3
 !s105 Reg_8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv
 L0 1
 R5
 r1
 !s85 0
 31
-!s108 1505832371.423000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Reg_8.sv|
+!s108 1506487646.001000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Reg_8.sv|
 !i113 1
 R6
 R7
@@ -135,79 +135,79 @@ R1
 R2
 !i10b 1
 !s100 U4VK`?=:8OzFDQa_6TfdW1
-IafF`ZZMaZcC?6UdIXnd`O1
+Iiaoi?^O0cLBg<g7ZF]KI<3
 R3
 !s105 Register_unit8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv
 L0 1
 R5
 r1
 !s85 0
 31
-!s108 1505832371.958000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Register_unit8.sv|
+!s108 1506487646.222000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Register_unit8.sv|
 !i113 1
 R6
 R7
 vrouter
 R1
-R2
+Z8 !s110 1506487645
 !i10b 1
 !s100 jVJoJVk`KE9HX__89MB591
-Ih<?V1?@bY3kj;5c8_JWVE3
+I`OZeYJ]SgiiK512`chBSV3
 R3
 !s105 Router8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv
 L0 3
 R5
 r1
 !s85 0
 31
-!s108 1505832371.349000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Router8.sv|
+!s108 1506487645.944000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Router8.sv|
 !i113 1
 R6
 R7
 vsync
 R1
-R2
+R8
 !i10b 1
 !s100 MBRRDQzUeRGc3_JnKELC82
-I<0CU0]2idNTzc6_2K[`LL0
+IU<D>:aW7ggH:hHHJ[_V<01
 R3
 Z9 !s105 Synchronizers8_sv_unit
 S1
 R0
 R4
-Z10 8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv
-Z11 FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv
+Z10 8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv
+Z11 FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv
 L0 6
 R5
 r1
 !s85 0
 31
-Z12 !s108 1505832371.198000
-Z13 !s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv|
-Z14 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/Synchronizers8.sv|
+Z12 !s108 1506487645.845000
+Z13 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv|
+Z14 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/Synchronizers8.sv|
 !i113 1
 R6
 R7
 vsync_r0
 R1
-R2
+R8
 !i10b 1
 !s100 ^edZB53fTQWmU<]D8>SLJ1
-IVZZPZQZ7286:jEh966N731
+In3A35dniOj7i4`e9LOKZM2
 R3
 R9
 S1
@@ -228,10 +228,10 @@ R6
 R7
 vsync_r1
 R1
-R2
+R8
 !i10b 1
 !s100 1UJULQIBYV]c:7PZl0oR<0
-IS59jn^FBmE447KTdB@@=z1
+I1T2ZXF0@fEF^`?6S2>SIM1
 R3
 R9
 S1
@@ -252,25 +252,25 @@ R6
 R7
 vtestbench_8
 R1
-R8
+R2
 !i10b 1
 !s100 SdVRi`gBibQPPB>ckI[F@3
-I[M6Do@dmQbo7h^nOZ^5@>3
+Id;T^RJhz^I]md4LW7QI880
 R3
 !s105 testbench_8_sv_unit
 S1
 R0
 R4
-8C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv
-FC:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv
+8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv
+FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv
 L0 1
 R5
 r1
 !s85 0
 31
-!s108 1505832372.124000
-!s107 C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus|C:/ECE 385 - tchia2 -shung5/Stuff_FA17-master/Stuff_FA17-master/logic 8 bit quartus/testbench_8.sv|
+!s108 1506487646.329000
+!s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/logic 8 bit quartus/testbench_8.sv|
 !i113 1
 R6
 R7
