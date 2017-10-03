@@ -5,6 +5,8 @@
 # a cloned repository to be used (usually) immediately without regenerating
 # Altera IP blocks.
 
+# Tim has modified this to try and remove ALL quartus files. There's probably a more elegant way.
+
 # Need to keep all HDL files and timing constraint files
 # *.vhd
 # *.v
@@ -48,3 +50,7 @@ timing
 *example*
 *sopc_*
 PLLJ_PLLSPE_INFO.txt # The generated PLL specification file
+
+# Tim's additions maybe
+*.qpf
+*.qsf

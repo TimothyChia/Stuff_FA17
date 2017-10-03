@@ -1,12 +1,15 @@
 module testbench_for_test_memory(	
-    input logic [15:0] S,
-	input logic Clk, Reset, Run, Continue,
-	output logic [11:0] LED,
-	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
-	output logic CE, UB, LB, OE, WE, //control signals for memory?
-	output logic [19:0] ADDR,
-	inout wire [15:0] Data //tristate buffers need to be of type wire - this is the CPU Bus
+    
     );
+
+    logic [15:0] S;
+	logic Clk, Reset, Run, Continue;
+	logic [11:0] LED;
+	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+	logic CE, UB, LB, OE, WE; //control signals for memory?
+	logic [19:0] ADDR;
+	wire [15:0] Data; //tristate buffers need to be of type wire - this is the CPU Bus
+
 
 timeunit 10ns;	// Half clock cycle at 50 MHz
 			// This is the amount of time represented by #1
@@ -15,26 +18,13 @@ timeprecision 1ns;
 // These signals are internal because the processor will be
 // instantiated as a submodule in testbench.
 logic Clk = 0;
-logic Reset, ClearA_LoadB, Run;
-logic [7:0] S,Aval,Bval;
-// logic [3:0] LED;
-// logic [7:0] Aval,
-// 		 Bval;
-logic [6:0] Ahex0,
-		 Ahex1,
-		 Bhex0,
-		 Bhex1;
-logic X;
-logic[15:0]     Sum;
-logic Dummy;
-logic[8:0] D_S_ext_flipped, D_S_ext_neg;
 
-// To store expected results
-logic [7:0] ans_1a, ans_2b;
+// // To store expected results
+// logic [7:0] ans_1a, ans_2b;
 
 // A counter to count the instances where simulation results
 // do no match with expected results
-integer ErrorCnt = 0;
+// integer ErrorCnt = 0;
 
 
 // Make sure the module and signal names match with those in your design
