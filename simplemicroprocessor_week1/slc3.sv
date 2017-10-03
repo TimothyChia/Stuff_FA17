@@ -55,10 +55,18 @@ logic [15:0] Data_from_SRAM, Data_to_SRAM;
 logic [3:0][3:0] hex_4;
 
 // For week 1, hexdrivers will display IR
-HexDriver hex_driver3 (IR[15:12], HEX3);
-HexDriver hex_driver2 (IR[11:8], HEX2);
-HexDriver hex_driver1 (IR[7:4], HEX1);
-HexDriver hex_driver0 (IR[3:0], HEX0);
+// HexDriver hex_driver3 (IR[15:12], HEX3);
+// HexDriver hex_driver2 (IR[11:8], HEX2);
+// HexDriver hex_driver1 (IR[7:4], HEX1);
+// HexDriver hex_driver0 (IR[3:0], HEX0);
+
+// alternate version to view the MDR
+HexDriver hex_driver3 (MAR[15:12], HEX3);
+HexDriver hex_driver2 (MAR[11:8], HEX2);
+HexDriver hex_driver1 (MAR[7:4], HEX1);
+HexDriver hex_driver0 (MAR[3:0], HEX0);
+
+
 
 // For week 2, hexdrivers will be mounted to Mem2IO
 // HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
