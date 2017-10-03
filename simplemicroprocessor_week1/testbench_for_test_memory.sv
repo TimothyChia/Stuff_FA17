@@ -17,7 +17,7 @@ timeprecision 1ns;
 
 // These signals are internal because the processor will be
 // instantiated as a submodule in testbench.
-logic Clk = 0;
+assign Clk = 0;
 
 // // To store expected results
 // logic [7:0] ans_1a, ans_2b;
@@ -71,3 +71,8 @@ Run = 0;
 #2 Run = 1;
 #2 Run = 0;
 $display("testbench complete");  // Command line output in ModelSim
+
+end
+
+
+endmodule

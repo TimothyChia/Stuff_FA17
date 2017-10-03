@@ -2,7 +2,7 @@ module datapath(
 	input logic [15:0] S, //what's this for?
 	input logic Clk, Reset, Run, Continue,
 
-    inout wire [15:0] Data //tristate buffers need to be of type wire - this is the CPU Bus
+    inout wire [15:0] Data, //tristate buffers need to be of type wire - this is the CPU Bus
 
 	// Internal connections
     input logic BEN, // indicates whether a BR should be taken
@@ -54,12 +54,13 @@ case ( {GatePC,GateMDR,GateALU,GateMARMUX}  )
     4 : Data = ALU; 
     8 : Data = MARMUX; 
     default : Data = x; 
+endcase
 
 // PC datapath
 // PC needs a reset to 0, an increment, an external value, and values for jumps
 if(LD_PC) begin
     case (PCMUX) 
-        0 : PC_next =  ; //cpu bus
+        0 : PC_next = Data ; //cpu bus is this right?
         1 : PC_next = ADDR_sum ; //jump address?
         2 : PC_next = PC + 1; 
         3 : PC_next = d; 
@@ -90,7 +91,7 @@ case (ADDR1MUX)
 // Memory Address Register Datapath
 if(LD_MAR) begin
    MAR_next = Data;
-end else
+end else begin
     MAR_next = MAR;
 end
 // Memory Data Register Datapath
@@ -100,7 +101,7 @@ if(LD_MDR) begin
         1 : MDR_next = MDR_In; //jump address?
         default : $display("Error in SEL"); 
     endcase
-end else
+end else begin
     MDR_next = MDR;
 end
 // Status Register Datapath
@@ -110,17 +111,17 @@ end
 // Arithmetic Logic Unit Datapath
 
 // DR destination register MUX. Connects to the Reg File.
-= DR;
+// = DR;
 if(DRMUX) begin
     DR = 3'b111;
-end else
+end else begin
     DR = IR[11:9];
 end
 
 //IR Instruction register Datapath
 if(LD_IR) begin
    IR_next = Data;
-end else
+end else begin
     IR_next = IR;
 end
 // SR1 Mux. Output connects directly to the Reg File
@@ -139,5 +140,5 @@ endcase
 
 //BEN the BR logic datapath for branching
 
-
+end
 endmodule

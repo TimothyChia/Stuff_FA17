@@ -28,3 +28,5 @@ test_memory test_memory_inst (.Clk,
                 .LB,
                 .OE,
                 .WE );
+
+                endmodule
