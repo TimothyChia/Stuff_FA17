@@ -1,16 +1,29 @@
 module datapath(
-	input logic [15:0] S,
+	input logic [15:0] S, //what's this for?
 	input logic Clk, Reset, Run, Continue,
-	output logic [11:0] LED,
-	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
-	output logic CE, UB, LB, OE, WE, //control signals for memory?
-	output logic [19:0] ADDR,
-	inout wire [15:0] Data //tristate buffers need to be of type wire
+
+    inout wire [15:0] Data //tristate buffers need to be of type wire - this is the CPU Bus
+
+	// Internal connections
+    input logic BEN, // indicates whether a BR should be taken
+    input logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED, //load signals for registers (mostly)
+    input logic GatePC, GateMDR, GateALU, GateMARMUX, //tri state signals?
+    input logic [1:0] PCMUX, ADDR2MUX, ALUK, // 2 bit select signals for muxes
+    input logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX, // 1 bit mux select signals
+    input logic MIO_EN, // enable for memory io of some kind?
+
+    // Buses or maybe registers if connected properly
+    input logic [15:0] MDR_In, // comes out of the mem2IO
+    output logic [15:0] MAR, MDR, IR, PC
+    // logic [15:0] Data_from_SRAM, Data_to_SRAM;
+
+
 );
-// put of all of this in in always ff or always comb ?
+
+
 
 // for the 2 always style
-logic BEN_next
+logic BEN_next;
 logic [15:0] MDR_In_next;
 logic [15:0] MAR_next, MDR_next, IR_next, PC_next;
 logic [15:0] Data_from_SRAM_next, Data_to_SRAM_next;
@@ -35,17 +48,12 @@ begin
 
 // CPU Bus Datapath 1 mux instead of 4 tristate buffers
 // for select, use a bitstring made out of outputs from CONTROL perhaps.
-case () 
-    1 : Data = GatePC; 
-    2 : Data = GateMDR ; 
-    4 : Data = GateALU; 
-    8 : Data = GateMARMUX; 
+case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
+    1 : Data = PC; 
+    2 : Data = MDR ; 
+    4 : Data = ALU; 
+    8 : Data = MARMUX; 
     default : Data = x; 
-// Not entirely sure why they renamed it in this fashion
-  GatePC = PC; 
-  GateMDR  = MDR; 
-  GateALU = ; 
-  GateMARMUX = ADDR_sum; 
 
 // PC datapath
 // PC needs a reset to 0, an increment, an external value, and values for jumps

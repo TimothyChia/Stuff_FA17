@@ -47,7 +47,7 @@ logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX; // 1 bit mux select signals
 logic MIO_EN; // enable for memory io of some kind?
 
 // Buses or maybe registers if connected properly
-logic [15:0] MDR_In;
+logic [15:0] MDR_In; // comes out of the mem2IO
 logic [15:0] MAR, MDR, IR, PC;
 logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
@@ -80,7 +80,25 @@ assign MIO_EN = ~OE;
 
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
-datapath d0 (/* Please fill in the signals.... */);
+datapath d0 (
+    S, //what's this for?
+    Clk, Reset, Run, Continue,
+    Data //tristate buffers need to be of type wire - this is the CPU Bus
+
+    // Internal connections
+    .BEN, // indicates whether a BR should be taken
+    .LD_MAR, .LD_MDR, .LD_IR, .LD_BEN, .LD_CC, .LD_REG, .LD_PC, .LD_LED, //load signals for registers (mostly)
+    .GatePC, .GateMDR, .GateALU, .GateMARMUX, //tri state signals?
+    .PCMUX, .ADDR2MUX, .ALUK, // 2 bit select signals for muxes
+    .DRMUX, .SR1MUX, .SR2MUX, .ADDR1MUX, // 1 bit mux select signals
+    .MIO_EN, // enable for memory io of some kind?
+
+    // Buses or maybe registers if connected properly
+    .MDR_In, // comes out of the mem2IO
+    .MAR, .MDR, .IR, .PC,
+    .Data_from_SRAM, .Data_to_SRAM
+
+    );
 
 // Our SRAM and I/O controller
 Mem2IO memory_subsystem(
@@ -90,6 +108,7 @@ Mem2IO memory_subsystem(
     .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
 );
 
+// Data_Mem as referenced in the lab manual doesn't exist here since we use this tristate.
 // The tri-state buffer serves as the interface between Mem2IO and SRAM
 tristate #(.N(16)) tr0(
     .Clk(Clk), .tristate_output_enable(~WE), .Data_write(Data_to_SRAM), .Data_read(Data_from_SRAM), .Data(Data)

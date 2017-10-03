@@ -84,6 +84,8 @@ module ISDU (   input logic         Clk,
             Halted :
                 if (Run)
                     Next_state = S_18;
+            
+            // The first state, so Fetch?
             S_18 :
                 Next_state = S_33_1;
             // Any states involving SRAM require more than one clock cycles.
@@ -105,7 +107,9 @@ module ISDU (   input logic         Clk,
                 if (Continue)
                     Next_state = PauseIR2;
                 else
-                    Next_state = S_18;
+                    Next_state = S_18; //fetch again
+
+
             S_32 :
                 case (Opcode)
                     4'b0001 :
@@ -188,21 +192,23 @@ module ISDU (   input logic         Clk,
         // Assign control signals based on current state
         case (State)
             Halted: ;
-            S_18 :
-                begin
+
+            
+            S_18 : //Fetch. MAR<-PC and PC++
+                begin 
                     GatePC = 1'b1;
                     LD_MAR = 1'b1;
                     PCMUX = 2'b00;
                     LD_PC = 1'b1;
                 end
-            S_33_1 :
+            S_33_1 : //connect memory to MDR
                 Mem_OE = 1'b0;
-            S_33_2 :
+            S_33_2 : // MDR <-M(MAR) 
                 begin
                     Mem_OE = 1'b0;
                     LD_MDR = 1'b1;
                 end
-            S_35 :
+            S_35 : //IR<-MDR
                 begin
                     GateMDR = 1'b1;
                     LD_IR = 1'b1;
