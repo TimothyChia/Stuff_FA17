@@ -81,9 +81,9 @@ assign MIO_EN = ~OE;
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
 datapath d0 (
-    S, //what's this for?
-    Clk, Reset, Run, Continue,
-    Data //tristate buffers need to be of type wire - this is the CPU Bus
+    .S, //what's this for?
+    .Clk, .Reset, .Run, .Continue,
+    .Data, //tristate buffers need to be of type wire - this is the CPU Bus
 
     // Internal connections
     .BEN, // indicates whether a BR should be taken
@@ -95,8 +95,8 @@ datapath d0 (
 
     // Buses or maybe registers if connected properly
     .MDR_In, // comes out of the mem2IO
-    .MAR, .MDR, .IR, .PC,
-    .Data_from_SRAM, .Data_to_SRAM
+    .MAR, .MDR, .IR, .PC
+    // .Data_from_SRAM, .Data_to_SRAM
 
     );
 

@@ -54,23 +54,23 @@ end
 // Everything happens sequentially inside an initial block
 // as in a software program
 initial begin: TEST_VECTORS
-Reset = 0;		// Toggle Rest
-S = 8'h0;
-ClearA_LoadB = 0;
-Run = 0;
+// Reset = 0;		// Toggle Rest
+// S = 8'h0;
+// ClearA_LoadB = 0;
+// Run = 0;
 
-#2 Reset = 1;
+// #2 Reset = 1;
 
 
-#2 Reset = 0;
-#2 S = 8'hF0;
-#2 ClearA_LoadB = 1;	// Toggle LoadA
-#5 ClearA_LoadB = 0;
+// #2 Reset = 0;
+// #2 S = 8'hF0;
+// #2 ClearA_LoadB = 1;	// Toggle LoadA
+// #5 ClearA_LoadB = 0;
 
-#2 S = 8'hF0;
-#2 Run = 1;
-#2 Run = 0;
-$display("testbench complete");  // Command line output in ModelSim
+// #2 S = 8'hF0;
+// #2 Run = 1;
+// #2 Run = 0;
+// $display("testbench complete");  // Command line output in ModelSim
 
 end
 

@@ -13,11 +13,10 @@ module datapath(
     input logic MIO_EN, // enable for memory io of some kind?
 
     // Buses or maybe registers if connected properly
-    input logic [15:0] MDR_In, // comes out of the mem2IO
+    output logic [15:0] MDR_In, // comes out of the mem2IO
     output logic [15:0] MAR, MDR, IR, PC
-    // logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
-
+    // output logic [15:0] Data_from_SRAM, Data_to_SRAM
 );
 
 
@@ -26,7 +25,7 @@ module datapath(
 logic BEN_next;
 logic [15:0] MDR_In_next;
 logic [15:0] MAR_next, MDR_next, IR_next, PC_next;
-logic [15:0] Data_from_SRAM_next, Data_to_SRAM_next;
+// logic [15:0] Data_from_SRAM_next, Data_to_SRAM_next;
 
 logic [15:0] ADDR2, ADDR1, ADDR_sum, SR1, SR2, ALUA, ALUB, SR2MUX_out; // does this already exist somewhere? used for adder
 logic [2:0] SR1MUX_out, DR;
@@ -38,8 +37,8 @@ begin
     MDR             <= MDR_next;
     IR              <= IR_next;
     PC              <= PC_next;
-    Data_from_SRAM  <= Data_from_SRAM_next;
-    Data_to_SRAM    <= Data_to_SRAM_next;
+    // Data_from_SRAM  <= Data_from_SRAM_next;
+    // Data_to_SRAM    <= Data_to_SRAM_next;
 end
 
 
@@ -51,9 +50,9 @@ begin
 case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
     1 : Data = PC; 
     2 : Data = MDR ; 
-    4 : Data = ALU; 
-    8 : Data = MARMUX; 
-    default : Data = x; 
+    // 4 : Data = ALU; 
+    8 : Data = ADDR_sum; 
+    default : Data = 16'bx; 
 endcase
 
 // PC datapath
@@ -63,8 +62,8 @@ if(LD_PC) begin
         0 : PC_next = Data ; //cpu bus is this right?
         1 : PC_next = ADDR_sum ; //jump address?
         2 : PC_next = PC + 1; 
-        3 : PC_next = d; 
-        default : $display("Error in SEL"); 
+        // 3 : PC_next = d; 
+        default : PC_next = 16'bx; 
     endcase
 end else begin
     PC_next = PC;
@@ -79,13 +78,13 @@ ADDR_sum = ADDR2 + ADDR1;
         1 : ADDR2 = { { 7{IR[8]} }, IR[8:0] };
         2 : ADDR2 = { { 10{IR[5]} }, IR[5:0] }; 
         3 : ADDR2 = IR; 
-        default : $display("Error in SEL"); 
+        default : ADDR2 = 16'bx ; 
     endcase
 // ADDR1 Mux
 case (ADDR1MUX) 
         0 : ADDR1 = SR1 ; // double check this name later.
         1 : ADDR1 = PC; 
-        default : $display("Error in SEL"); 
+        default : ADDR1 = 16'bx; 
     endcase
 
 // Memory Address Register Datapath
@@ -99,7 +98,7 @@ if(LD_MDR) begin
     case (MIO_EN) 
         0 : MDR_next = Data ; //cpu bus
         1 : MDR_next = MDR_In; //jump address?
-        default : $display("Error in SEL"); 
+        default : MDR_next = 16'bx; 
     endcase
 end else begin
     MDR_next = MDR;
@@ -128,14 +127,14 @@ end
 case (SR1MUX) 
     0 : SR1MUX_out = IR[11:9] ;
     1 : SR1MUX_out = IR[8:6]  ; 
-    default : $display("Error in SEL"); 
+    default : SR1MUX_out = 3'bx ; 
 endcase
 // SR2 Mux. Output connects directly to the ALU B input.
 ALUB = SR2MUX_out;
 case (SR2MUX) 
     0 : SR2MUX_out = { { 11{IR[10]} }, IR[4:0] } ; // double check this name later.
     1 : SR2MUX_out = SR2; 
-    default : $display("Error in SEL"); 
+    default : SR2MUX_out = 16'bx; 
 endcase
 
 //BEN the BR logic datapath for branching

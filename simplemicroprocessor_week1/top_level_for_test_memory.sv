@@ -8,6 +8,10 @@ module top_level_for_test_memory(
 	inout wire [15:0] Data //tristate buffers need to be of type wire - this is the CPU Bus
     );
 
+//think the compiler complains about all the Data connections I made
+
+logic   [19:0]  A; //no idea what this does, but it's for the test memory
+
 slc3 slc3_inst(
                 .S,
                 .Clk, .Reset, .Run, .Continue,

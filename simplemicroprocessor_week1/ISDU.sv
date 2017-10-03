@@ -110,53 +110,53 @@ module ISDU (   input logic         Clk,
                     Next_state = S_18; //fetch again
 
 
-            S_32 :
-                case (Opcode)
-                    4'b0001 :
-                        Next_state = S_01;
+            // S_32 :
+            //     case (Opcode)
+            //         4'b0001 :
+            //             Next_state = S_01;
 
-                    // You need to finish the rest of opcodes.....
+            //         // You need to finish the rest of opcodes.....
 
-                    default :
-                        Next_state = S_18;
-                endcase
-            S_01 :
-                Next_state = S_18;
+            //         default :
+            //             Next_state = S_18;
+            //     endcase
+            // S_01 :
+            //     Next_state = S_18;
 
-            // You need to finish the rest of states.....
-            S_05 : //AND
-                Next_state = S_18;
-            S_09 : //NOT
-                Next_state = S_18;
-            S_06 : //LDR
-                Next_state = S_25_1;
-            S_25_1 :
-                Next_state = S_25_2;
-            S_25_2 :
-                Next_state = S_27;
-            S_27 :
-                Next_state = S_18;
-            S_07 : //STR
-                Next_state = S_23;
-            S_23 :
-                Next_state = S_16_1;
-            S_16_1 :
-                Next_state = S_16_2;
-            S_16_2 :
-                Next_state = S_18;
-            S_04 : //JSR
-                Next_state = S_21;
-            S_21 :
-                Next_state = S_18;
-            S_12 : //JMP
-                Next_state = S_18;
-            S_00 : //BR
-              if(BEN)
-                Next_state = S_22;
-              else
-                Next_state = S_18;
-            S_22 :
-                Next_state = S_18;
+            // // You need to finish the rest of states.....
+            // S_05 : //AND
+            //     Next_state = S_18;
+            // S_09 : //NOT
+            //     Next_state = S_18;
+            // S_06 : //LDR
+            //     Next_state = S_25_1;
+            // S_25_1 :
+            //     Next_state = S_25_2;
+            // S_25_2 :
+            //     Next_state = S_27;
+            // S_27 :
+            //     Next_state = S_18;
+            // S_07 : //STR
+            //     Next_state = S_23;
+            // S_23 :
+            //     Next_state = S_16_1;
+            // S_16_1 :
+            //     Next_state = S_16_2;
+            // S_16_2 :
+            //     Next_state = S_18;
+            // S_04 : //JSR
+            //     Next_state = S_21;
+            // S_21 :
+            //     Next_state = S_18;
+            // S_12 : //JMP
+            //     Next_state = S_18;
+            // S_00 : //BR
+            //   if(BEN)
+            //     Next_state = S_22;
+            //   else
+            //     Next_state = S_18;
+            // S_22 :
+            //     Next_state = S_18;
             default : ;
 
         endcase
@@ -215,42 +215,44 @@ module ISDU (   input logic         Clk,
                 end
             PauseIR1: ;
             PauseIR2: ;
-            S_32 :
-                LD_BEN = 1'b1;
-            S_01 :
-                begin
-                    SR2MUX = IR_5;
-                    ALUK = 2'b00;
-                    GateALU = 1'b1;
-                    LD_REG = 1'b1;
-                    // incomplete...
-                    LD_CC = 1'b1;
+
+
+            // S_32 :
+            //     LD_BEN = 1'b1;
+            // S_01 :
+            //     begin
+            //         SR2MUX = IR_5;
+            //         ALUK = 2'b00;
+            //         GateALU = 1'b1;
+            //         LD_REG = 1'b1;
+            //         // incomplete...
+            //         LD_CC = 1'b1;
 
 
 
 
-                end
+            //     end
 
-            // You need to finish the rest of states.....
-            S_05 :
-              begin
-                  SR2MUX = IR_5;
-                  ALUK = 2'b01;
-                  GateALU = 1'b1;
-                  LD_REG = 1'b1;
-                  // incomplete...
-                  LD_CC = 1'b1;
-              end
+            // // You need to finish the rest of states.....
+            // S_05 :
+            //   begin
+            //       SR2MUX = IR_5;
+            //       ALUK = 2'b01;
+            //       GateALU = 1'b1;
+            //       LD_REG = 1'b1;
+            //       // incomplete...
+            //       LD_CC = 1'b1;
+            //   end
 
-              S_09 :
-                begin
-                    SR2MUX = IR_5;
-                    ALUK = 2'b01;
-                    GateALU = 1'b1;
-                    LD_REG = 1'b1;
-                    // incomplete...
-                    LD_CC = 1'b1;
-                end
+            //   S_09 :
+            //     begin
+            //         SR2MUX = IR_5;
+            //         ALUK = 2'b01;
+            //         GateALU = 1'b1;
+            //         LD_REG = 1'b1;
+            //         // incomplete...
+            //         LD_CC = 1'b1;
+            //     end
 
             default : ;
         endcase
