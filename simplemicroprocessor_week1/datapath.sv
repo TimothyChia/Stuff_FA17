@@ -19,6 +19,7 @@ module datapath(
     // output logic [15:0] Data_from_SRAM, Data_to_SRAM
 );
 
+// see page 8 of appendix C
 
 
 // for the 2 always style
@@ -48,20 +49,20 @@ begin
 // CPU Bus Datapath 1 mux instead of 4 tristate buffers
 // for select, use a bitstring made out of outputs from CONTROL perhaps.
 case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
-    1 : Data = PC; 
-    2 : Data = MDR ; 
+    8 : Data = PC; 
+    4 : Data = MDR ; 
     // 4 : Data = ALU; 
-    8 : Data = ADDR_sum; 
-    default : Data = 16'bx; 
+    1 : Data = ADDR_sum; 
+    default : Data = 16'b0; 
 endcase
 
 // PC datapath
 // PC needs a reset to 0, an increment, an external value, and values for jumps
 if(LD_PC) begin
     case (PCMUX) 
-        0 : PC_next = Data ; //cpu bus is this right?
-        1 : PC_next = ADDR_sum ; //jump address?
-        2 : PC_next = PC + 1; 
+        1 : PC_next = Data ; //cpu bus is this right?
+        2 : PC_next = ADDR_sum ; //jump address?
+        0 : PC_next = PC + 1; 
         // 3 : PC_next = d; 
         default : PC_next = 16'bx; 
     endcase

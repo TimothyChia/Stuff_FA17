@@ -54,3 +54,5 @@ PLLJ_PLLSPE_INFO.txt # The generated PLL specification file
 # Tim's additions maybe
 *.qpf
 *.qsf
+*.cdf
+*.sld

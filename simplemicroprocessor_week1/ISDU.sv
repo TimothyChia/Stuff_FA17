@@ -196,10 +196,10 @@ module ISDU (   input logic         Clk,
             
             S_18 : //Fetch. MAR<-PC and PC++
                 begin 
-                    GatePC = 1'b1;
-                    LD_MAR = 1'b1;
-                    PCMUX = 2'b00;
-                    LD_PC = 1'b1;
+                    GatePC = 1'b1; // put PC on data bus
+                    LD_MAR = 1'b1; // load MAR from data bus
+                    PCMUX = 2'b00; // select PC+1
+                    LD_PC = 1'b1; // load PC
                 end
             S_33_1 : //connect memory to MDR
                 Mem_OE = 1'b0;

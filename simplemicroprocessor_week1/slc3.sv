@@ -34,7 +34,7 @@ module slc3(
 // Declaration of push button active high signals
 logic Reset_ah, Continue_ah, Run_ah;
 
-assign Reset_ah = ~Reset;
+assign Reset_ah = ~Reset;//might have to use actual registers, how to reset? should we reset?
 assign Continue_ah = ~Continue;
 assign Run_ah = ~Run;
 
