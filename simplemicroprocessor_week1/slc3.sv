@@ -26,9 +26,9 @@ module slc3(
 	input logic Clk, Reset, Run, Continue,
 	output logic [11:0] LED,
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7,
-	output logic CE, UB, LB, OE, WE,
+	output logic CE, UB, LB, OE, WE, //control signals for memory?
 	output logic [19:0] ADDR,
-	inout wire [15:0] Data //tristate buffers need to be of type wire
+	inout wire [15:0] Data //tristate buffers need to be of type wire - this is the CPU Bus
 );
 
 // Declaration of push button active high signals
@@ -39,13 +39,14 @@ assign Continue_ah = ~Continue;
 assign Run_ah = ~Run;
 
 // Internal connections
-logic BEN;
-logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED;
-logic GatePC, GateMDR, GateALU, GateMARMUX;
-logic [1:0] PCMUX, ADDR2MUX, ALUK;
-logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX;
-logic MIO_EN;
+logic BEN; // indicates whether a BR should be taken
+logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED; //load signals for registers (mostly)
+logic GatePC, GateMDR, GateALU, GateMARMUX; //tri state signals?
+logic [1:0] PCMUX, ADDR2MUX, ALUK; // 2 bit select signals for muxes
+logic DRMUX, SR1MUX, SR2MUX, ADDR1MUX; // 1 bit mux select signals
+logic MIO_EN; // enable for memory io of some kind?
 
+// Buses or maybe registers if connected properly
 logic [15:0] MDR_In;
 logic [15:0] MAR, MDR, IR, PC;
 logic [15:0] Data_from_SRAM, Data_to_SRAM;
