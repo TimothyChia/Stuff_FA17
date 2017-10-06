@@ -124,6 +124,11 @@ end
 // General Purpose Register Datapath
 
 // Arithmetic Logic Unit Datapath
+// 00 - add
+// 01 - AND
+// 01 - NOT (wait what, why are they the same
+
+
 
 // DR destination register MUX. Connects to the Reg File.
 // = DR;
@@ -148,8 +153,8 @@ endcase
 // SR2 Mux. Output connects directly to the ALU B input.
 ALUB = SR2MUX_out;
 case (SR2MUX) 
-    0 : SR2MUX_out = { { 11{IR[10]} }, IR[4:0] } ; // double check this name later.
-    1 : SR2MUX_out = SR2; 
+    0 : SR2MUX_out =  SR2; // double check this name later.
+    1 : SR2MUX_out = { { 11{IR[10]} }, IR[4:0] } ; //1 - immediate
     default : SR2MUX_out = 16'bx; 
 endcase
 
