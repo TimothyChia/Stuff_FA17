@@ -2,7 +2,7 @@ module datapath(
 	input logic [15:0] S, //what's this for?
 	input logic Clk, Reset, Run, Continue,
 
-    inout wire [15:0] Data, //tristate buffers need to be of type wire - this is the CPU Bus
+//    inout wire [15:0] Data, //tristate buffers need to be of type wire - this is the CPU Bus. NOT THE CONNECTION TO SRAM.
 
 	// Internal connections
     input logic BEN, // indicates whether a BR should be taken
@@ -13,7 +13,7 @@ module datapath(
     input logic MIO_EN, // enable for memory io of some kind?
 
     // Buses or maybe registers if connected properly
-    output logic [15:0] MDR_In, // comes out of the mem2IO
+    input logic [15:0] MDR_In, // comes out of the mem2IO
     output logic [15:0] MAR, MDR, IR, PC
 
     // output logic [15:0] Data_from_SRAM, Data_to_SRAM
@@ -21,10 +21,12 @@ module datapath(
 
 // see page 8 of appendix C
 
+// THIS IS THE CPU BUS. NOT THE SRAM. FULLY INTERNAL, NOT A PORT.
+logic [15:0] Data;
 
 // for the 2 always style
 logic BEN_next;
-logic [15:0] MDR_In_next;
+//logic [15:0] MDR_In_next; //an input?
 logic [15:0] MAR_next, MDR_next, IR_next, PC_next;
 // logic [15:0] Data_from_SRAM_next, Data_to_SRAM_next;
 
@@ -33,13 +35,25 @@ logic [2:0] SR1MUX_out, DR;
 
 always_ff @(posedge Clk)
 begin
-    MDR_In          <= MDR_In_next;
+	if(Reset) begin
+	// MDR_In          <= 16'b0;
+    MAR             <= 16'b0;
+    MDR             <= 16'b0;
+    IR              <= 16'b0;
+    PC              <= 16'b0;
+	end
+	else begin
+	// MDR_In          <= MDR_In_next;
     MAR             <= MAR_next;
     MDR             <= MDR_next;
     IR              <= IR_next;
     PC              <= PC_next;
     // Data_from_SRAM  <= Data_from_SRAM_next;
     // Data_to_SRAM    <= Data_to_SRAM_next;
+	end
+
+
+
 end
 
 
@@ -48,12 +62,13 @@ begin
 
 // CPU Bus Datapath 1 mux instead of 4 tristate buffers
 // for select, use a bitstring made out of outputs from CONTROL perhaps.
+// if you don't output high z it causes problems.
 case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
     8 : Data = PC; 
     4 : Data = MDR ; 
     // 4 : Data = ALU; 
     1 : Data = ADDR_sum; 
-    default : Data = 16'b0; 
+    default : Data = 16'bz; 
 endcase
 
 // PC datapath

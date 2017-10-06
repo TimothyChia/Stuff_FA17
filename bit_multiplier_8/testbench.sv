@@ -63,7 +63,10 @@ Run = 0;
 
 
 #2 Reset = 0;
-#2 S = 8'hF0;
+#2 S = 8'h40;
+#2 Bval = 8'hF0;
+#2 Aval = 8'h40;
+
 #2 ClearA_LoadB = 1;	// Toggle LoadA
 #5 ClearA_LoadB = 0;
 

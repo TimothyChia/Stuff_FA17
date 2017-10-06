@@ -56,3 +56,8 @@ PLLJ_PLLSPE_INFO.txt # The generated PLL specification file
 *.qsf
 *.cdf
 *.sld
+*.qws
+*.rdb
+*.hdb
+*.rpt
+*.sdo

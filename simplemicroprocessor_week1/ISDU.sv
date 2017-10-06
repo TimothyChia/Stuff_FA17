@@ -92,8 +92,8 @@ module ISDU (   input logic         Clk,
             // Any states involving SRAM require more than one clock cycles.
             // The exact number will be discussed in lecture.
             S_33_1 :
-                // Next_state = S_33_2;
-                Next_state = P1A;
+                Next_state = S_33_2;
+                //Next_state = P1A;
                 
             S_33_2 :
                 Next_state = S_35;
@@ -114,17 +114,17 @@ module ISDU (   input logic         Clk,
                     Next_state = S_18; //fetch again
 
 // extra pause states
-            P1A :
-                if (~Continue)
-                    Next_state = P1A;
-                else
-                    Next_state = P1B;
-            P1B :
-                if (Continue)
-                    Next_state = P1B;
-                else
+  //          P1A :
+    //            if (~Continue)
+      //              Next_state = P1A;
+        //        else
+                //    Next_state = P1B;
+          //  P1B :
+            //    if (Continue)
+               //     Next_state = P1B;
+             //   else
                     // Next_state = S_35; //fetch again
-                Next_state = S_33_2;
+              //  Next_state = S_33_2;
 
             // S_32 :
             //     case (Opcode)

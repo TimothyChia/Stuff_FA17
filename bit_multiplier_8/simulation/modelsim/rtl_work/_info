@@ -10,15 +10,15 @@ cModel Technology
 Z0 dC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/simulation/modelsim
 vbit_multiplier_8
 Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-Z2 !s110 1506318990
+Z2 !s110 1507086104
 !i10b 1
-!s100 j6X=82Lz;:IIQ?h1<I6SL0
-I^5MI1o[bXkSonDoS>Iko33
+!s100 ABZ822Y7>Q]4>>6K9k;zb2
+IPeQEm5nO6><b?7S0EB0Rh2
 Z3 V`JN@9S9cnhjKRR_L]QIcM3
 !s105 bit_multiplier_8_sv_unit
 S1
 R0
-w1506318873
+w1506319204
 8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv
 FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv
 L0 1
@@ -26,7 +26,7 @@ Z4 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1506318990.968000
+!s108 1507086104.585000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/bit_multiplier_8.sv|
 !i113 1
@@ -50,7 +50,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.867000
+!s108 1507086104.487000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Control.sv|
 !i113 1
@@ -74,7 +74,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.812000
+!s108 1507086104.442000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Dreg.sv|
 !i113 1
@@ -99,7 +99,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.920000
+!s108 1507086104.534000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/adder2.sv|
 !i113 1
@@ -123,7 +123,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.761000
+!s108 1507086104.386000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/HexDriver.sv|
 !i113 1
@@ -148,7 +148,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.706000
+!s108 1507086104.349000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Reg_8.sv|
 !i113 1
@@ -172,7 +172,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318990.659000
+!s108 1507086104.286000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/ripple_adder.sv|
 !i113 1
@@ -196,7 +196,7 @@ R4
 r1
 !s85 0
 31
-Z12 !s108 1506318990.602000
+Z12 !s108 1507086104.233000
 Z13 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv|
 Z14 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/Synchronizers8.sv|
 !i113 1
@@ -252,15 +252,15 @@ R5
 R6
 vtestbench
 R1
-!s110 1506318991
+R2
 !i10b 1
-!s100 77:mR:COklNIehYdhLHEn2
-IDiY;G^088dk19i`VaGg7n3
+!s100 I@92f0Ac8011IIHHK_hMF1
+IcQ;Ic@L7>cJ9`DBBbbQcd0
 R3
 !s105 testbench_sv_unit
 S1
 R0
-w1506318865
+w1507086039
 8C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv
 FC:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv
 L0 1
@@ -268,7 +268,7 @@ R4
 r1
 !s85 0
 31
-!s108 1506318991.018000
+!s108 1507086104.619000
 !s107 C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8|C:/Users/timrc/Dropbox/Fall 2017/ECE 385/Stuff_FA17/bit_multiplier_8/testbench.sv|
 !i113 1
