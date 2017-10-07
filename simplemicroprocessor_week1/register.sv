@@ -1,7 +1,7 @@
 module register (input  logic Clk, Load,
-                input [2:0] DR,
-                input [15:0] bus,
-                output [15:0] SR1_OUT, SR2_OUT);
+                input [2:0] Write_sel, Read_sel_1, Read_sel_2
+                input [15:0] Data_In,
+                output [15:0] Data_out_1, Data_out_2);
 
       logic [15:0] R7, R6, R5, R4, R3, R2, R1, R0;
 
