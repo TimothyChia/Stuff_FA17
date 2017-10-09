@@ -55,9 +55,11 @@ module ISDU (   input logic         Clk,
                                     Mem_LB,
                                     Mem_OE,
                                     Mem_WE
+
+                // output logic [4:0] state
                 );
 
-    enum logic [3:0] {  Halted,
+    enum logic [4:0] {  Halted,
                         P1A,P1B,P2A,P2B,P3A,P3B,
                         PauseIR1,
                         PauseIR2,
@@ -66,7 +68,23 @@ module ISDU (   input logic         Clk,
                         S_33_2,
                         S_35,
                         S_32,
-                        S_01}   State, Next_state;   // Internal state logic
+                        S_01, //ADD
+            S_05, //AND
+            S_09 ,//NOT
+            S_06, //LDR_0
+            S_25_1 ,//LDR_1
+            S_25_2, //LDR_2
+            S_27, //LDR_3
+            S_07, //STR_0
+            S_23 , //STR_1
+            S_16_1, //STR_2
+            S_16_2, //STR_3
+            S_04, //JSR_0. would normally decide JSR or JSRR, but this lab only has JSR.
+            S_21, //JSR_1. for JSR
+            S_12, //JMP
+            S_00, //BR_0
+            S_22 //BR_1
+                        }   State, Next_state;   // Internal state logic
 
     always_ff @ (posedge Clk)
     begin
@@ -92,7 +110,7 @@ module ISDU (   input logic         Clk,
             S_18 :  //Fetch0
                 Next_state = S_33_1;
             // Any states involving SRAM require more than one clock cycles.
-            // The exact number will be discussed in lecture.
+            // The exact number will be discussed in lecture. (it's 2)
             S_33_1 :  //Fetch1
                 Next_state = S_33_2;
                 
@@ -105,29 +123,17 @@ module ISDU (   input logic         Clk,
         // Next_state = PauseIR1;
             // PauseIR1 and PauseIR2 are only for Week 1 such that TAs can see
             // the values in IR.
-            // PauseIR1 :
-            //     if (~Continue)
-            //         Next_state = PauseIR1;
-            //     else
-            //         Next_state = PauseIR2;
-            // PauseIR2 :
-            //     if (Continue)
-            //         Next_state = PauseIR2;
-            //     else
-            //         Next_state = S_18; //fetch again
-
-// extra pause states
-  //          P1A :
-    //            if (~Continue)
-      //              Next_state = P1A;
-        //        else
-                //    Next_state = P1B;
-          //  P1B :
-            //    if (Continue)
-               //     Next_state = P1B;
-             //   else
-                    // Next_state = S_35; //fetch again
-              //  Next_state = S_33_2;
+            //repurposing for the PAUSE instruction.
+            PauseIR1 :
+                if (~Continue)
+                    Next_state = PauseIR1;
+                else
+                    Next_state = PauseIR2;
+            PauseIR2 :
+                if (Continue)
+                    Next_state = PauseIR2;
+                else
+                    Next_state = S_18; //fetch again
 
             S_32 : // Decode
                 case (Opcode)
@@ -147,8 +153,8 @@ module ISDU (   input logic         Clk,
                         Next_state = S_06;
                     4'b0111 : //STR
                         Next_state = S_07;
-                    4'b1101 : //PAUSE
-                        Next_state = ; 
+                    4'b1101 : //PAUSE  
+                        Next_state = PauseIR1; //THIS NEEDS TO BE COMPLETED.
 
                     // You need to finish the rest of opcodes.....
 
@@ -256,17 +262,15 @@ module ISDU (   input logic         Clk,
                     GateMDR = 1'b1;
                     LD_IR = 1'b1;
                 end
-            PauseIR1: ;
-            PauseIR2: ;
-// P1A: ;
-// P1B: ;
+            PauseIR1: LD_LED = 1'b1;
+            PauseIR2: LD_LED = 1'b1;
 
             S_32 : //Decode
                 LD_BEN = 1'b1;   //update BEN
             S_01 : //ADD
                 begin
-                    SR1MUX = 1'b1;  // IR[8:6]
-                    SR2MUX = IR_5; // 1 - immediate
+                    SR1MUX = 1'b1;  //1 - IR[8:6]
+                    SR2MUX = IR_5; // 1 - immediate5
                     DRMUX = 1'b1;  // 1 - IR[11:9]
                     LD_REG = 1'b1;  // DR <- CPU Bus (ALU)
 
@@ -277,7 +281,7 @@ module ISDU (   input logic         Clk,
 
             S_05 : //AND
               begin
-                    SR1MUX = 1'b1;  // IR[8:6]
+                    SR1MUX = 1'b1;  // 1 -IR[8:6]
                     SR2MUX = IR_5; // 1 -5 immediate
                     DRMUX = 1'b1;  // 1 - IR[11:9]
                     LD_REG = 1'b1;  // DR <- CPU Bus (ALU)
@@ -300,10 +304,10 @@ module ISDU (   input logic         Clk,
 
             S_06 : //LDR_0
             begin
-                    SR1MUX = 1'b1;  // BaseR = IR[8:6]
+                    SR1MUX = 1'b1;  // 1 - BaseR = IR[8:6]
 
                     ADDR1MUX = 1'b1; //1 - ADDR1 = SR1
-                    ADDR2MUX = 1'b1; //1 - offset 6
+                    ADDR2MUX = 2'b01; //1 - offset 6
 
                     GateMARMUX = 1'b1; //CPU Bus <- SR1 + offset6
                     LD_MAR = 1'b1;  // MAR <- BaseR + SEXT(offset6);
@@ -318,57 +322,70 @@ module ISDU (   input logic         Clk,
             S_27 ://LDR_3
                 begin
                     DRMUX = 1'b1;  // 1 - IR[11:9]
-                    LD_REG - 1'b1; //DR <- CPU Bus(MDR)
+                    LD_REG = 1'b1; //DR <- CPU Bus(MDR)
                 
                     GateMDR = 1'b1; //CPU Bus <- MDR
                 end
 
             S_07 : //STR_0. Set MAR.
-                    SR1MUX = 1'b1;  // BaseR = IR[8:6]
+                begin
+                    SR1MUX = 1'b1;  // 1- BaseR = IR[8:6]
 
                     ADDR1MUX = 1'b1; //1 - ADDR1 = SR1
-                    ADDR2MUX = 1'b1; //1 - offset 6
+                    ADDR2MUX = 2'b01; //1 - offset 6
 
                     GateMARMUX = 1'b1; //CPU Bus <- SR1 + offset6
                     LD_MAR = 1'b1;  // MAR <- BaseR + SEXT(offset6);
+                end
             S_23 :  //STR_1. Set MDR.
+                begin
                     SR1MUX = 1'b0;  // 0 - SR = IR[11:9]
                     ADDR1MUX = 1'b01; //1 - ADDR1 = SR1
-                    ADDR2MUX = 1'b0; //0 - ADDR2 = 0
+                    ADDR2MUX = 2'b00; //0 - ADDR2 = 0
                     GateMARMUX = 1'b1; //CPU Bus <- SR1 + 0
                     Mem_OE = 1'b1; // MDR <- CPU Bus (probably)
                     LD_MDR = 1'b1;
+                end
             S_16_1 : //STR_2. Write MDR to memory
-                    //idk
+                Mem_WE= 1'b0;
             S_16_2 : //STR_3. Wait for memory to finish writing.
-
+                Mem_WE= 1'b0;
             S_04 : //JSR_0. Save PC in R7. Choose JSR or JSRR. For this lab, just JSR.
+                begin
                 GatePC = 1'b1;
                 DRMUX   = 1'b0; //0 DR = R7  
                 LD_REG = 1'b1;  //DR <- PC (incremeneted by fetch)
-
+                end
          // S_20: JSRR version for state 20. But not needed for this lab.
                 // SR1MUX = 1'b1;  // BaseR = IR[8:6]
                 // ADDR1MUX = 1'b1; //0 ADDR1 = SR1
                 // ADDR2MUX = 1'b00; //3 ADDR2 = 0
                 // LD_PC = 1'b1; // PC <- BaseR + 0
-
             S_21 : //JSR_1. JSR. 
+                begin
                 ADDR1MUX = 1'b0; //0 ADDR1 = PC
-                ADDR2MUX = 1'b11; //3 ADDR2 = offset 11
+                ADDR2MUX = 2'b11; //3 ADDR2 = offset 11
                 LD_PC = 1'b1; // PC <- PC+offset 11
+                PCMUX = 2'b10; //2 - ADDR_sum
+                end
 
             S_12 : //JMP
-                SR1MUX = 1'b1;  // BaseR = IR[8:6]
+                begin
+                SR1MUX = 1'b1;  // 1 - BaseR = IR[8:6]
                 ADDR1MUX = 1'b1; // 1 ADDR1 = SR1 (BaseR)
-                ADDR2MUX = 1'b00; //3 ADDR2 =  0
+                ADDR2MUX = 2'b00; //0 ADDR2 =  0
                 LD_PC = 1'b1; // PC <- BaseR
-
+                PCMUX = 2'b10; //2 - ADDR_sum
+                end
             S_00 : //BR_0
+                ;  //checks BEN, handled in the transition rules up above.
             S_22 : //BR_1. Since BEN==1, branch.
+                begin
                 ADDR1MUX = 1'b0; //0 ADDR1 = PC
-                ADDR2MUX = 1'b10; //2 ADDR2 = offset 9
+                ADDR2MUX = 2'b10; //2 ADDR2 = offset 9
                 LD_PC = 1'b1; // PC <- PC+offset 9
+                PCMUX = 2'b10; //2 - ADDR_sum
+                end
             default : ;
         endcase
     end

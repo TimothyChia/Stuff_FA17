@@ -63,10 +63,10 @@ logic [15:0] Data_from_SRAM, Data_to_SRAM;
 logic [3:0][3:0] hex_4;
 
 // For week 1, hexdrivers will display IR
- HexDriver hex_driver3 (IR[15:12], HEX3);
- HexDriver hex_driver2 (IR[11:8], HEX2);
- HexDriver hex_driver1 (IR[7:4], HEX1);
- HexDriver hex_driver0 (IR[3:0], HEX0);
+//  HexDriver hex_driver3 (IR[15:12], HEX3);
+//  HexDriver hex_driver2 (IR[11:8], HEX2);
+//  HexDriver hex_driver1 (IR[7:4], HEX1);
+//  HexDriver hex_driver0 (IR[3:0], HEX0);
 
 // alternate version to view the MDR
 //HexDriver hex_driver3 (MAR[15:12], HEX3);
@@ -77,10 +77,10 @@ logic [3:0][3:0] hex_4;
 
 
 // For week 2, hexdrivers will be mounted to Mem2IO
-// HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
-// HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
-// HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
-// HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
+HexDriver hex_driver3 (hex_4[3][3:0], HEX3);
+HexDriver hex_driver2 (hex_4[2][3:0], HEX2);
+HexDriver hex_driver1 (hex_4[1][3:0], HEX1);
+HexDriver hex_driver0 (hex_4[0][3:0], HEX0);
 
 // The other hex display will show PC for both weeks.
 HexDriver hex_driver7 (PC[15:12], HEX7);
@@ -113,8 +113,9 @@ assign LD_LED_d = LD_LED;
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
 datapath d0 (
-    .S, //what's this for?
+    .S, //what's this for? switches
     .Clk, .Reset(Reset_ah), .Run(Run_ah), .Continue(Continue_ah),
+    .LED,
     //.Data, //tristate buffers need to be of type wire - this is the CPU Bus NOT
 
     // Internal connections
@@ -133,17 +134,16 @@ datapath d0 (
     );
 
 // Our SRAM and I/O controller
- Mem2IO memory_subsystem(
-    .*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
-    .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
-    .Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
-    .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
-);
+//  Mem2IO memory_subsystem(
+//     .*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
+//     .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
+//     .Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
+//     .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
+// );
 
-// for the simulation, since bypassing mem2IO
-// assign Data_to_SRAM = MDR;
-// assign MDR_In = Data_from_SRAM;
-// assign ADDR
+// for the simulation, since bypassing mem2IO. ADDR handled externally.
+assign Data_to_SRAM = MDR;
+assign MDR_In = Data_from_SRAM;
 
 // Data_Mem as referenced in the lab manual doesn't exist here since we use this tristate.
 // The tri-state buffer serves as the interface between Mem2IO and SRAM

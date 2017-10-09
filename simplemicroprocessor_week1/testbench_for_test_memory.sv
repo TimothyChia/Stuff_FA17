@@ -70,42 +70,46 @@ initial begin: TEST_VECTORS
  
  #2 Reset = 1;
  #2 Reset = 0;
+    S = 9;
 
  #2 Run = 1;
  #2 Run = 0;
 
-  #2 Continue = 1;
-  #2 Continue = 0; 
 
-  #2 Continue = 1;
-  #2 Continue = 0;
+ #50
 
-  #2 Continue = 1;
-  #2 Continue = 0; 
+  // #2 Continue = 1;
+  // #2 Continue = 0; 
 
-  #2 Continue = 1;
-  #2 Continue = 0;
+  // #2 Continue = 1;
+  // #2 Continue = 0;
+
+  // #2 Continue = 1;
+  // #2 Continue = 0; 
+
+  // #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
-    #2 Continue = 1;
-  #2 Continue = 0;
+  //   #2 Continue = 1;
+  // #2 Continue = 0;
   
  $display("testbench complete");  // Command line output in ModelSim
 

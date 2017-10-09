@@ -1,11 +1,11 @@
 module datapath(
 	input logic [15:0] S, //what's this for?
 	input logic Clk, Reset, Run, Continue,
-
+    output logic [11:0] LED,
 //    inout wire [15:0] Data, //tristate buffers need to be of type wire - this is the CPU Bus. NOT THE CONNECTION TO SRAM.
 
 	// Internal connections
-    input logic BEN, // indicates whether a BR should be taken
+    output logic BEN, // indicates whether a BR should be taken
     input logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED, //load signals for registers (mostly)
     input logic GatePC, GateMDR, GateALU, GateMARMUX, //tri state signals?
     input logic [1:0] PCMUX, ADDR2MUX, ALUK, // 2 bit select signals for muxes
@@ -17,6 +17,9 @@ module datapath(
     output logic [15:0] MAR, MDR, IR, PC
 
     // output logic [15:0] Data_from_SRAM, Data_to_SRAM
+
+
+
 );
 
 
@@ -24,6 +27,9 @@ module datapath(
 
 // THIS IS THE CPU BUS. NOT THE SRAM. FULLY INTERNAL, NOT A PORT. previously named Data.
 logic [15:0] CPU_BUS;
+logic [11:0] LED_next; //seems a little odd holding this in a register, but 2 pause states means it should work as expected.
+
+logic [15:0] ALU; //for the output of the ALU
 logic [2:0]  CC;
 logic [2:0]  CC_next;
 
@@ -42,7 +48,7 @@ logic [2:0] SR1MUX_out, DR;
 
 register reg_file (   
     .Clk, .Load(LD_REG),
-    .Write_sel(DR), .Read_sel_1( SR1MUX_out ), .Read_sel_2( IR[0:2] ),
+    .Write_sel(DR), .Read_sel_1( SR1MUX_out ), .Read_sel_2( IR[2:0] ),
     .Data_In(CPU_BUS),
     .Data_out_1(SR1), .Data_out_2(SR2)
                 );
@@ -68,6 +74,7 @@ begin
     // Data_from_SRAM  <= Data_from_SRAM_next;
     // Data_to_SRAM    <= Data_to_SRAM_next;
     CC              <= CC_next;
+    LED             <= LED_next;
 	end
 
 
@@ -92,6 +99,12 @@ end else begin
     CC_next = CC;
 end
 
+if(LD_LED)
+    LED_next = IR[11:0];
+else
+    LED_next = LED;
+
+
 //BEN register
 if(LD_BEN) begin
     if(IR[11:9] == CC ) 
@@ -108,16 +121,16 @@ else
 case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
     8 : CPU_BUS = PC; 
     4 : CPU_BUS = MDR ; 
-    4 : CPU_BUS = ALU; 
+    2 : CPU_BUS = ALU; 
     1 : CPU_BUS = ADDR_sum; 
-    default : CPU_BUS = 16'bz; //for efficiency reasons, put x instead of z?
+    default : CPU_BUS = 16'bx; //for efficiency reasons, put x instead of z?
 endcase
 
 // PC datapath
 // PC needs a reset to 0, an increment, an external value, and values for jumps
 if(LD_PC) begin
     case (PCMUX) 
-        0 : PC_next = PC + 1; 
+        0 : PC_next = PC + 16'b1; 
         1 : PC_next = CPU_BUS ;
         2 : PC_next = ADDR_sum ; //jump address?
         // 3 : PC_next = d; 
@@ -133,7 +146,7 @@ ADDR_sum = ADDR2 + ADDR1;
 // ADDR2 Mux
     case (ADDR2MUX) 
         0 : ADDR2 =   16'b0;
-        1 : ADDR2 =  { { 10{IR[5]} }, IR[5:0] }
+        1 : ADDR2 =  { { 10{IR[5]} }, IR[5:0] };
         2 : ADDR2 =  { { 7{IR[8]} }, IR[8:0] };  
         3 : ADDR2 =  { { 5{IR[10]} }, IR[10:0] }  ; 
         default : ADDR2 = 16'bx ; 
@@ -168,7 +181,7 @@ end
 // Arithmetic Logic Unit Datapath
 // 00 - add
 // 01 - AND
-// 01 - NOT (wait what, why are they the same. change to 10?
+// 01 - NOT (wait what, why are they the same. change to 10? must have been a typo by 385 staff.
 case(ALUK)
     0: ALU = SR1 + SR2MUX_out;//add
     1: ALU = SR1 & SR2MUX_out;//AND
@@ -199,7 +212,7 @@ endcase
 // SR2 Mux. Output connects directly to the ALU B input.
 case (SR2MUX) 
     0 : SR2MUX_out =  SR2; // double check this name later.
-    1 : SR2MUX_out = { { 11{IR[10]} }, IR[4:0] } ; //1 - immediate
+    1 : SR2MUX_out = { { 11{IR[4]} }, IR[4:0] } ; //1 - immediate
 endcase
 
 
