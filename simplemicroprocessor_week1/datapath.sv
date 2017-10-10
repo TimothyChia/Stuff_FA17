@@ -18,9 +18,11 @@ module datapath(
 
     // output logic [15:0] Data_from_SRAM, Data_to_SRAM
 
-                output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
+    output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
+    output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d,
 
-    output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d
+    output logic [2:0] CCd,
+    output logic BENd, n_d, z_d, p_d
 );
 
 
@@ -46,6 +48,7 @@ logic [15:0] MAR_next, MDR_next, IR_next, PC_next;
 logic [15:0] ADDR2, ADDR1, ADDR_sum, SR1, SR2, SR2MUX_out; 
 logic [2:0] SR1MUX_out, DR;
 
+logic [15:0] ALU_sum;
 
 register reg_file (   
     .Clk, .Load(LD_REG), .Reset,
@@ -63,13 +66,25 @@ carry_lookahead_adder address_adder
     .Sum(ADDR_sum),
     .CO()
 );
+carry_lookahead_adder ALU_adder
+(
+    .A(SR1),
+    .B(SR2MUX_out),
+    .Sum(ALU_sum),
+    .CO()
+);
+
 
 assign CPU_BUSd=CPU_BUS;
 assign ALUd=ALU;
 assign ADDR_sumd=ADDR_sum;
 assign ADDR1d=ADDR1;
 assign ADDR2d=ADDR2;
-
+assign CCd=CC;
+assign BENd=BEN;
+assign n_d=n;
+assign z_d=z;
+assign p_d=p;
 
 always_ff @(posedge Clk)
 begin
@@ -79,6 +94,7 @@ begin
     MDR             <= 16'b0;
     IR              <= 16'b0;
     PC              <= 16'b0;
+    // CC              <= 3'b0; //note unconditional branch won't work properly if you reset to 0
 	end
 	else begin
 	// MDR_In          <= MDR_In_next;
@@ -87,8 +103,6 @@ begin
     MDR             <= MDR_next;
     IR              <= IR_next;
     PC              <= PC_next;
-    // Data_from_SRAM  <= Data_from_SRAM_next;
-    // Data_to_SRAM    <= Data_to_SRAM_next;
     CC              <= CC_next;
     LED             <= LED_next;
 	end
@@ -105,8 +119,9 @@ begin
 //only loaded when the result from ALU is on the data bus.
 //supposedly the priority of nested else if would be enough here, 
 //but it's a little confusing so I made it explicit with n z p logic variables.
+//not sure why, but a CPU_BUS value of 0000 is resulting in xxx for nzp here.
 n = CPU_BUS[15];
-z = CPU_BUS == 16'b0;
+z = (CPU_BUS == 16'b0); //added parantheses to try to eliminate erroneous don't care.
 p = !n && !z;
 
 if(LD_CC) begin
@@ -122,8 +137,9 @@ else
 
 
 //BEN register
+//see appendix A, this should actually be BEN=1 if any bits match, not all bits match.
 if(LD_BEN) begin
-    if(IR[11:9] == CC ) 
+    if(  (IR[11] == CC[2])  ||     (IR[10] == CC[1])  ||  (IR[9] == CC[0])   ) 
         BEN_next = 1'b1;
     else
         BEN_next = 1'b0;
@@ -133,13 +149,15 @@ else
 
 // CPU Bus Datapath 1 mux instead of 4 tristate buffers
 // for select, use a bitstring made out of outputs from CONTROL perhaps.
-// if you don't output high z it causes problems.
+// if you don't output high z it causes problems. 1
+// nzp is having erroneous don't care values. because of using x here?   3
+//switching to 0 default fixed nzp, probably won't introduce any other errors if the state machine is correct.
 case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
     8 : CPU_BUS = PC; 
     4 : CPU_BUS = MDR ; 
     2 : CPU_BUS = ALU; 
     1 : CPU_BUS = ADDR_sum; 
-    default : CPU_BUS = 16'bx; //for efficiency reasons, put x instead of z?
+    default : CPU_BUS = 16'b0; //for efficiency reasons, put x instead of z? 2
 endcase
 
 // PC datapath
@@ -203,10 +221,11 @@ end
 // 01 - AND
 // 01 - NOT (wait what, why are they the same. change to 10? must have been a typo by 385 staff.
 case(ALUK)
-    0: ALU = SR1 + SR2MUX_out;//add
+    // 0: ALU = SR1 + SR2MUX_out;//add
+    0: ALU = ALU_sum;//add    
     1: ALU = SR1 & SR2MUX_out;//AND
     2: ALU = ~SR1;            //NOT
-    default: ALU = 16'bx;
+    default: ALU = 16'b0;
 endcase
 
 

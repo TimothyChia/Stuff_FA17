@@ -330,10 +330,8 @@ module ISDU (   input logic         Clk,
             S_07 : //STR_0. Set MAR.
                 begin
                     SR1MUX = 1'b1;  // 1- BaseR = IR[8:6]
-
                     ADDR1MUX = 1'b1; //1 - ADDR1 = SR1
                     ADDR2MUX = 2'b01; //1 - offset 6
-
                     GateMARMUX = 1'b1; //CPU Bus <- SR1 + offset6
                     LD_MAR = 1'b1;  // MAR <- BaseR + SEXT(offset6);
                 end
@@ -350,6 +348,7 @@ module ISDU (   input logic         Clk,
                 Mem_WE= 1'b0;
             S_16_2 : //STR_3. Wait for memory to finish writing.
                 Mem_WE= 1'b0;
+
             S_04 : //JSR_0. Save PC in R7. Choose JSR or JSRR. For this lab, just JSR.
                 begin
                 GatePC = 1'b1;

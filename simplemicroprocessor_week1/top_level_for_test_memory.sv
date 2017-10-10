@@ -12,7 +12,9 @@ module top_level_for_test_memory(
  output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
      output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d,
 
-    output logic [1:0] ADDR2MUXd
+    output logic [1:0] ADDR2MUXd,
+        output logic [2:0] CCd,
+    output logic BENd, n_d, z_d, p_d
 
     );
 

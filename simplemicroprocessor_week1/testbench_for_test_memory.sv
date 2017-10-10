@@ -7,22 +7,25 @@ module testbench_for_test_memory(
 timeprecision 1ns;
 
 	 
-    logic [15:0] S;
-	logic  Reset, Run, Continue;
-	logic [11:0] LED;
-	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
-	logic CE, UB, LB, OE, WE; //control signals for memory?
-	logic [19:0] ADDR;
-	// wire [15:0] Data; //tristate buffers need to be of type wire - this is the CPU Bus
+logic [15:0] S;
+logic  Reset, Run, Continue;
+logic [11:0] LED;
+logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+logic CE, UB, LB, OE, WE; //control signals for memory?
+logic [19:0] ADDR;
+// wire [15:0] Data; //tristate buffers need to be of type wire - this is the CPU Bus
 
-	
-	logic [15:0] MDR_In_d, MAR_d, MDR_d, IR_d, PC_d;
 
-  logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d;
+logic [15:0] MDR_In_d, MAR_d, MDR_d, IR_d, PC_d;
 
-   logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d;
-     logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d;
-     logic [1:0] ADDR2MUXd;
+logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d;
+
+logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d;
+logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d;
+logic [1:0] ADDR2MUXd;
+
+     logic [2:0] CCd;
+     logic BENd, n_d, z_d, p_d;
 
 // These signals are internal because the processor will be
 // instantiated as a submodule in testbench.
@@ -73,47 +76,81 @@ initial begin: TEST_VECTORS
  
  #2 Reset = 1;
  #2 Reset = 0;
-    S = 9;
+    S = 11;
 
  #2 Run = 1;
  #2 Run = 0;
 
-
  #50
 
-  // #2 Continue = 1;
-  // #2 Continue = 0; 
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
 
-  // #2 Continue = 1;
-  // #2 Continue = 0;
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
 
-  // #2 Continue = 1;
-  // #2 Continue = 0; 
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
 
-  // #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
-  //   #2 Continue = 1;
-  // #2 Continue = 0;
-  
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+#2 Continue = 1;
+#2 Continue = 0; 
+#10
+
+
  $display("testbench complete");  // Command line output in ModelSim
 
 end
