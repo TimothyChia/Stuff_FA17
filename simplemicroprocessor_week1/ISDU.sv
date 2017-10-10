@@ -374,7 +374,7 @@ module ISDU (   input logic         Clk,
                 SR1MUX = 1'b1;  // 1 - BaseR = IR[8:6]
                 ADDR1MUX = 1'b1; // 1 ADDR1 = SR1 (BaseR)
                 ADDR2MUX = 2'b00; //0 ADDR2 =  0
-                LD_PC = 1'b1; // PC <- BaseR
+                LD_PC = 1'b1; // PC <- BaseR +0
                 PCMUX = 2'b10; //2 - ADDR_sum
                 end
             S_00 : //BR_0

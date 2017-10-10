@@ -34,7 +34,11 @@ module slc3(
 	
 	
 	output logic [15:0] MDR_In_d, MAR_d, MDR_d, IR_d, PC_d,
-	output logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d
+	output logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d,
+
+    output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
+    output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d,
+    output logic [1:0] ADDR2MUXd
 );
 
 
@@ -110,6 +114,8 @@ assign LD_REG_d = LD_REG;
 assign LD_PC_d = LD_PC;
 assign LD_LED_d = LD_LED;
 
+assign ADDR2MUXd=ADDR2MUX;
+
 // You need to make your own datapath module and connect everything to the datapath
 // Be careful about whether Reset is active high or low
 datapath d0 (
@@ -128,22 +134,23 @@ datapath d0 (
 
     // Buses or maybe registers if connected properly
     .MDR_In, // comes out of the mem2IO
-    .MAR, .MDR, .IR, .PC
+    .MAR, .MDR, .IR, .PC,
     // .Data_from_SRAM, .Data_to_SRAM
-
+    .* //careful with this.
     );
 
 // Our SRAM and I/O controller
-//  Mem2IO memory_subsystem(
-//     .*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
-//     .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
-//     .Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
-//     .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
-// );
+ Mem2IO memory_subsystem(
+    .*, .Reset(Reset_ah), .ADDR(ADDR), .Switches(S),
+    .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]),
+    .Data_from_CPU(MDR), .Data_to_CPU(MDR_In),
+    .Data_from_SRAM(Data_from_SRAM), .Data_to_SRAM(Data_to_SRAM)
+);
 
 // for the simulation, since bypassing mem2IO. ADDR handled externally.
-assign Data_to_SRAM = MDR;
-assign MDR_In = Data_from_SRAM;
+// does not work for week 2, since the switches are supposed to be in memory -1
+// assign Data_to_SRAM = MDR;
+// assign MDR_In = Data_from_SRAM;
 
 // Data_Mem as referenced in the lab manual doesn't exist here since we use this tristate.
 // The tri-state buffer serves as the interface between Mem2IO and SRAM

@@ -8,7 +8,12 @@ module top_level_for_test_memory(
 	inout wire [15:0] Data, //tristate buffers need to be of type wire - this is the CPU Bus
 	
 		output logic [15:0] MDR_In_d, MAR_d, MDR_d, IR_d, PC_d,
-		output logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d
+		output logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d,
+ output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
+     output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d,
+
+    output logic [1:0] ADDR2MUXd
+
     );
 
 //think the compiler complains about all the Data connections I made

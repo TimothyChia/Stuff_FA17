@@ -14,12 +14,13 @@ module datapath(
 
     // Buses or maybe registers if connected properly
     input logic [15:0] MDR_In, // comes out of the mem2IO
-    output logic [15:0] MAR, MDR, IR, PC
+    output logic [15:0] MAR, MDR, IR, PC,
 
     // output logic [15:0] Data_from_SRAM, Data_to_SRAM
 
+                output logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d,
 
-
+    output logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d
 );
 
 
@@ -47,12 +48,27 @@ logic [2:0] SR1MUX_out, DR;
 
 
 register reg_file (   
-    .Clk, .Load(LD_REG),
+    .Clk, .Load(LD_REG), .Reset,
     .Write_sel(DR), .Read_sel_1( SR1MUX_out ), .Read_sel_2( IR[2:0] ),
     .Data_In(CPU_BUS),
-    .Data_out_1(SR1), .Data_out_2(SR2)
+    .Data_out_1(SR1), .Data_out_2(SR2),
+    .*
                 );
 
+
+carry_lookahead_adder address_adder
+(
+    .A(ADDR1),
+    .B(ADDR2),
+    .Sum(ADDR_sum),
+    .CO()
+);
+
+assign CPU_BUSd=CPU_BUS;
+assign ALUd=ALU;
+assign ADDR_sumd=ADDR_sum;
+assign ADDR1d=ADDR1;
+assign ADDR2d=ADDR2;
 
 
 always_ff @(posedge Clk)
@@ -141,22 +157,26 @@ end else begin
 end
 // PC adder thing for BR, JSR, and LDR (also useful for the other instructions
 // any instruction using offset 11, offset 9, and offset 6
-ADDR_sum = ADDR2 + ADDR1;
+// No idea why this doesn't work, but it produces 0000+FFFF = 02
+// ADDR_sum = ADDR2 + ADDR1;
 
-// ADDR2 Mux
-    case (ADDR2MUX) 
-        0 : ADDR2 =   16'b0;
-        1 : ADDR2 =  { { 10{IR[5]} }, IR[5:0] };
-        2 : ADDR2 =  { { 7{IR[8]} }, IR[8:0] };  
-        3 : ADDR2 =  { { 5{IR[10]} }, IR[10:0] }  ; 
-        default : ADDR2 = 16'bx ; 
-    endcase
+
+
+
 // ADDR1 Mux
 case (ADDR1MUX) 
         0 : ADDR1 = PC; //Base Register
         1 : ADDR1 = SR1 ;
-        default : ADDR1 = 16'bx; 
     endcase
+// ADDR2 Mux
+
+// THIS SEXT SYNTAX DOES NOT WORK FOR SOME REASON.
+case (ADDR2MUX) 
+    0 : ADDR2 =   16'b0;
+    1 : ADDR2 =  { { 10{IR[5]} }, IR[5:0] };
+    2 : ADDR2 =  { { 7{IR[8]} }, IR[8:0] };  
+    3 : ADDR2 =  { { 5{IR[10]} }, IR[10:0] }  ; 
+endcase
 
 // Memory Address Register Datapath
 if(LD_MAR) begin
@@ -168,7 +188,7 @@ end
 if(LD_MDR) begin
     case (MIO_EN) 
         0 : MDR_next = CPU_BUS ; //cpu bus
-        1 : MDR_next = MDR_In; //jump address?
+        1 : MDR_next = MDR_In; //from mem2IO
         default : MDR_next = 16'bx; 
     endcase
 end else begin

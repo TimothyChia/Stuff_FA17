@@ -20,6 +20,9 @@ timeprecision 1ns;
 
   logic LD_MAR_d, LD_MDR_d, LD_IR_d, LD_BEN_d, LD_CC_d, LD_REG_d, LD_PC_d, LD_LED_d;
 
+   logic   [15:0] R7d, R6d, R5d, R4d, R3d, R2d, R1d, R0d;
+     logic [15:0] CPU_BUSd, ALUd,ADDR_sumd,ADDR1d,ADDR2d;
+     logic [1:0] ADDR2MUXd;
 
 // These signals are internal because the processor will be
 // instantiated as a submodule in testbench.
