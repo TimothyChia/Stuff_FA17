@@ -58,15 +58,24 @@ module ISDU (   input logic         Clk,
 
                 // output logic [4:0] state
                 );
-
-    enum logic [4:0] {  Halted,
+//attempting to get more consistent writes
+ //sync WE_sync (
+//	.Clk, .d(WE_s),.q(Mem_WE)
+//);
+// sync OE_sync (
+//.Clk, .d(OE_s), .q(Mem_OE) 
+//);
+	//				 logic WE_s,OE_s;
+					 
+    enum logic [5:0] {  Halted,
                         P1A,P1B,P2A,P2B,P3A,P3B,
                         PauseIR1,
                         PauseIR2,
                         S_18,
                         S_33_1,
                         S_33_2,
-                        S_35,
+								S_33_3,
+								S_35,
                         S_32,
                         S_01, //ADD
             S_05, //AND
@@ -74,11 +83,13 @@ module ISDU (   input logic         Clk,
             S_06, //LDR_0
             S_25_1 ,//LDR_1
             S_25_2, //LDR_2
+            S_25_3, //LDR_
             S_27, //LDR_3
             S_07, //STR_0
             S_23 , //STR_1
             S_16_1, //STR_2
             S_16_2, //STR_3
+				S_16_3,
             S_04, //JSR_0. would normally decide JSR or JSRR, but this lab only has JSR.
             S_21, //JSR_1. for JSR
             S_12, //JMP
@@ -113,8 +124,9 @@ module ISDU (   input logic         Clk,
             // The exact number will be discussed in lecture. (it's 2)
             S_33_1 :  //Fetch1
                 Next_state = S_33_2;
-                
-            S_33_2 : //Fetch2
+            S_33_2 :  //Fetch1
+                Next_state = S_33_3;
+            S_33_3 : //Fetch2
                 Next_state = S_35;
                 
             S_35 : //Fetch3
@@ -176,7 +188,9 @@ module ISDU (   input logic         Clk,
                 Next_state = S_25_1;
             S_25_1 : //LDR_1
                 Next_state = S_25_2;
-            S_25_2 : //LDR_2
+            S_25_2 : //LDR_1
+                Next_state = S_25_3;
+            S_25_3 : //LDR_2
                 Next_state = S_27;
             S_27 : //LDR_3
                 Next_state = S_18;
@@ -188,6 +202,9 @@ module ISDU (   input logic         Clk,
             S_16_1 : //STR_2
                 Next_state = S_16_2;
             S_16_2 : //STR_3
+                Next_state = S_16_3;
+				S_16_3 : //STR_3
+		
                 Next_state = S_18;
 
             S_04 : //JSR_0. would normally decide JSR or JSRR, but this lab only has JSR.
@@ -235,8 +252,10 @@ module ISDU (   input logic         Clk,
         ADDR1MUX = 1'b0;
         ADDR2MUX = 2'b00;
 
-        Mem_OE = 1'b1;
+       Mem_OE = 1'b1;
         Mem_WE = 1'b1;
+       // OE_s = 1'b1;
+       // WE_s = 1'b1;
 
         // Assign control signals based on current state
         case (State)
@@ -252,9 +271,11 @@ module ISDU (   input logic         Clk,
                 end
             S_33_1 : //connect memory to MDR
                 Mem_OE = 1'b0;
-            S_33_2 : // MDR <-M(MAR) 
+			   S_33_2 :
+					Mem_OE = 1'b0;
+            S_33_3 : // MDR <-M(MAR) 
                 begin
-                    Mem_OE = 1'b0;
+                    Mem_OE = 1'b0; //try 3 states of 0
                     LD_MDR = 1'b1;
                 end
             S_35 : //IR<-MDR
@@ -314,7 +335,9 @@ module ISDU (   input logic         Clk,
             end
             S_25_1 : //LDR_1
                 Mem_OE = 1'b0; //connect memory to MDR
-            S_25_2 ://LDR_2
+            S_25_2 ://LDR_
+			       Mem_OE = 1'b0; //connect memory to MDR
+            S_25_3 ://LDR_
                 begin
                     Mem_OE = 1'b0;
                     LD_MDR = 1'b1;
@@ -341,14 +364,16 @@ module ISDU (   input logic         Clk,
                     ADDR1MUX = 1'b01; //1 - ADDR1 = SR1
                     ADDR2MUX = 2'b00; //0 - ADDR2 = 0
                     GateMARMUX = 1'b1; //CPU Bus <- SR1 + 0
-                    Mem_OE = 1'b1; // MDR <- CPU Bus (probably)
+                    //Mem_OE = 1'b1; // MDR <- CPU Bus (probably) this is the default value anyway.
                     LD_MDR = 1'b1;
                 end
             S_16_1 : //STR_2. Write MDR to memory
-                Mem_WE= 1'b0;
+					Mem_WE = 1'b0;
             S_16_2 : //STR_3. Wait for memory to finish writing.
-                Mem_WE= 1'b0;
-
+					Mem_WE = 1'b0;       
+				S_16_3: 
+					Mem_WE = 1'b0;
+					 
             S_04 : //JSR_0. Save PC in R7. Choose JSR or JSRR. For this lab, just JSR.
                 begin
                 GatePC = 1'b1;

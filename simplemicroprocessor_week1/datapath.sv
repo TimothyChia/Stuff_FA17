@@ -38,6 +38,7 @@ logic [2:0]  CC_next;
 
 // for nzp combinational logic, not register
 logic n,z,p;
+//logic [15:0] n;
 
 // for the 2 always style
 logic BEN_next;
@@ -74,6 +75,12 @@ carry_lookahead_adder ALU_adder
     .CO()
 );
 
+ CPU_BUS_MUX cpubm (.select({GatePC,GateMDR,GateALU,GateMARMUX}  ),
+                .PC,.MDR,.ALU,.ADDR_sum,.dc(16'bx),
+                .CPU_BUS,
+             );
+
+
 
 assign CPU_BUSd=CPU_BUS;
 assign ALUd=ALU;
@@ -85,6 +92,11 @@ assign BENd=BEN;
 assign n_d=n;
 assign z_d=z;
 assign p_d=p;
+
+//assign n=CPU_BUS[15];
+//assign z = (CPU_BUS == 16'b0)? 1:0; //added parantheses to try to eliminate erroneous don't care.
+//assign p = (!n && !z) ? 1:0  ;
+
 
 always_ff @(posedge Clk)
 begin
@@ -120,12 +132,13 @@ begin
 //supposedly the priority of nested else if would be enough here, 
 //but it's a little confusing so I made it explicit with n z p logic variables.
 //not sure why, but a CPU_BUS value of 0000 is resulting in xxx for nzp here.
-n = CPU_BUS[15];
-z = (CPU_BUS == 16'b0); //added parantheses to try to eliminate erroneous don't care.
-p = !n && !z;
+
+ n=CPU_BUS[15];
+ z = (CPU_BUS == 16'b0)? 1:0; //added parantheses to try to eliminate erroneous don't care.
+ p = (!n && !z) ? 1:0  ;
 
 if(LD_CC) begin
-    CC_next = {n,z,p};
+    CC_next = {1'b1,z,p};
 end else begin
     CC_next = CC;
 end
@@ -152,13 +165,15 @@ else
 // if you don't output high z it causes problems. 1
 // nzp is having erroneous don't care values. because of using x here?   3
 //switching to 0 default fixed nzp, probably won't introduce any other errors if the state machine is correct.
-case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
-    8 : CPU_BUS = PC; 
-    4 : CPU_BUS = MDR ; 
-    2 : CPU_BUS = ALU; 
-    1 : CPU_BUS = ADDR_sum; 
-    default : CPU_BUS = 16'b0; //for efficiency reasons, put x instead of z? 2
-endcase
+//case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
+ //   8 : CPU_BUS = PC; 
+  //  4 : CPU_BUS = MDR ; 
+   // 2 : CPU_BUS = ALU; 
+   // 1 : CPU_BUS = ADDR_sum; 
+   // default : CPU_BUS = 16'bx; //for efficiency reasons, put x instead of z? 2
+//endcase
+
+
 
 // PC datapath
 // PC needs a reset to 0, an increment, an external value, and values for jumps

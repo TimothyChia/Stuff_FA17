@@ -47,10 +47,12 @@ module slc3(
 
 // Declaration of push button active high signals
 logic Reset_ah, Continue_ah, Run_ah;
+logic Reset_s, Continue_s, Run_s;
 
-assign Reset_ah = ~Reset;//might have to use actual registers, how to reset? should we reset?
-assign Continue_ah = ~Continue;
-assign Run_ah = ~Run;
+
+assign Reset_ah = ~Reset_s;//might have to use actual registers, how to reset? should we reset?
+assign Continue_ah = ~Continue_s;
+assign Run_ah = ~Run_s;
 
 // Internal connections
 logic BEN; // indicates whether a BR should be taken
@@ -67,6 +69,19 @@ logic [15:0] Data_from_SRAM, Data_to_SRAM;
 
 // Signals being displayed on hex display
 logic [3:0][3:0] hex_4;
+
+ sync Reset_sync (
+	.Clk, .d(Reset),.q(Reset_s)
+);
+
+ sync Continue_sync (
+	.Clk, .d(Continue),.q(Continue_s)
+);
+
+ sync Run_sync (
+	.Clk, .d(Run),.q(Run_s)
+);
+
 
 // For week 1, hexdrivers will display IR
 //  HexDriver hex_driver3 (IR[15:12], HEX3);
