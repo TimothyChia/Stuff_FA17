@@ -75,10 +75,10 @@ carry_lookahead_adder ALU_adder
     .CO()
 );
 
- CPU_BUS_MUX cpubm (.select({GatePC,GateMDR,GateALU,GateMARMUX}  ),
-                .PC,.MDR,.ALU,.ADDR_sum,.dc(16'bx),
-                .CPU_BUS,
-             );
+//  CPU_BUS_MUX cpubm (.select({GatePC,GateMDR,GateALU,GateMARMUX}  ),
+//                 .PC,.MDR,.ALU,.ADDR_sum,.dc(16'bx),
+//                 .CPU_BUS,
+//              );
 
 
 
@@ -165,13 +165,13 @@ else
 // if you don't output high z it causes problems. 1
 // nzp is having erroneous don't care values. because of using x here?   3
 //switching to 0 default fixed nzp, probably won't introduce any other errors if the state machine is correct.
-//case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
- //   8 : CPU_BUS = PC; 
-  //  4 : CPU_BUS = MDR ; 
-   // 2 : CPU_BUS = ALU; 
-   // 1 : CPU_BUS = ADDR_sum; 
-   // default : CPU_BUS = 16'bx; //for efficiency reasons, put x instead of z? 2
-//endcase
+case ( {GatePC,GateMDR,GateALU,GateMARMUX}  ) 
+   8 : CPU_BUS = PC; 
+   4 : CPU_BUS = MDR ; 
+   2 : CPU_BUS = ALU; 
+   1 : CPU_BUS = ADDR_sum; 
+   default : CPU_BUS = 16'bx; //for efficiency reasons, put x instead of z? 2
+endcase
 
 
 
